@@ -18,12 +18,14 @@ import {
 	connection,
 	config,
 	connected,
+	demoMode,
 	event,
 	persistentNotifications,
 	services
 } from '$lib/Stores';
 import { openModal, closeModal } from 'svelte-modals';
 import type { Configuration, PersistentNotification } from '$lib/Types';
+import { activateMockHomeAssistant } from '$lib/MockHomeAssistant';
 
 // Module-level reference to the active connection. Prevents authentication()
 // from creating a duplicate connection on every profile switch (which would
@@ -56,9 +58,10 @@ const options = {
 
 export async function authentication(configuration: Configuration) {
 	if (!configuration?.hassUrl) {
-		console.error('hassUrl is undefined...');
+		activateMockHomeAssistant();
 		return;
 	}
+	demoMode.set(false);
 
 	// Skip if a connection is already established — avoids creating a second
 	// WebSocket on profile switches where the token/URL haven't changed.

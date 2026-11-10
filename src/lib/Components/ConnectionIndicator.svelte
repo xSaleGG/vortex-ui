@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { connected, motion, lang } from '$lib/Stores';
+	import { connected, demoMode, motion, lang } from '$lib/Stores';
 	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
 
@@ -21,7 +21,10 @@
 	onDestroy(() => clearTimeout(delayTimeout));
 </script>
 
-{#if showBanner}
+
+{#if $demoMode}
+	<div class="banner demo-banner">Offline demo mode - Home Assistant URL not configured</div>
+{:else if showBanner}
 	<div class="banner" transition:fade={{ duration: $motion }}>
 		{$lang('connection_lost')}
 	</div>
@@ -40,5 +43,9 @@
 		color: white;
 		font-size: 0.9rem;
 		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.demo-banner {
+		background: rgba(42, 105, 83, 0.94);
 	}
 </style>

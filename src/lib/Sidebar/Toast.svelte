@@ -6,6 +6,7 @@
 		lang,
 		motion,
 		connection,
+		demoMode,
 		event,
 		configuration
 	} from '$lib/Stores';
@@ -75,7 +76,7 @@
 			if (prev === 'CONNECTED') {
 				// connection-lost banner now handled by ConnectionIndicator.svelte
 				// ERR_HASS_HOST_REQUIRED
-			} else if (!$configuration?.hassUrl) {
+			} else if (!$demoMode && !$configuration?.hassUrl) {
 				setTimeoutHandler('ERR_HASS_HOST_REQUIRED');
 
 				// ERR_CANNOT_CONNECT

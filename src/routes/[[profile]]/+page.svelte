@@ -213,7 +213,7 @@
 		 */
 		document.documentElement.lang = $selectedLanguage || 'en';
 		connect();
-		retryInterval = setInterval(connect, 3000);
+		if ($configuration?.hassUrl) retryInterval = setInterval(connect, 3000);
 
 		/**
 		 * Unregister service worker because it

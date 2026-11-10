@@ -1,6 +1,6 @@
 theme: slate
 hide_views: false
-hide_sidebar: true
+hide_sidebar: false
 views:
   - id: 9800000000001
     name: Grid Demo

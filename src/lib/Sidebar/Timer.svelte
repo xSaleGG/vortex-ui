@@ -132,9 +132,9 @@
 
 			<div class="counter" style:color={finishes_at ? 'orange' : 'rgba(255, 255, 255, 0.5)'}>
 				{#if state === 'active' && entity_id}
-					{displayTime || $timers[entity_id].pausedState}
+					{displayTime || $timers[entity_id]?.pausedState || '--:--'}
 				{:else if state === 'paused' && entity_id}
-					{$timers[entity_id].pausedState}
+					{$timers[entity_id]?.pausedState || '--:--'}
 				{:else if state === 'idle' && attributes?.duration}
 					{format(...parseRemaining(attributes.duration))}
 				{:else}

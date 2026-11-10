@@ -113,6 +113,13 @@ export async function load({ params, request, cookies }): Promise<{
 
 	// hassUrl from env or server.js
 	configuration.hassUrl = process.env.HASS_URL || request.headers.get('X-Proxy-Target');
+	if (
+		!configuration.hassUrl &&
+		!dashboard.views?.length &&
+		!dashboard.sidebar?.length
+	) {
+		Object.assign(dashboard, await loadFile('./data/dashboard-grid-demo.yaml'));
+	}
 
 	// initialize keys if missing
 	dashboard.views = dashboard.views || [];
