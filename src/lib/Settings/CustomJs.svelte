@@ -35,7 +35,7 @@
 
 	code {
 		font-size: 0.9rem;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 		padding: 0.2rem 0.4rem;
 		border-radius: 0.4rem;
 	}

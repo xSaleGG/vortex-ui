@@ -90,7 +90,7 @@
 
 	code {
 		font-size: 0.9rem;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 		padding: 0.2rem 0.4rem;
 		border-radius: 0.4rem;
 	}
@@ -129,8 +129,8 @@
 	}
 
 	.save-btn {
-		background-color: #ffc107;
-		color: #3b0f10;
+		background-color: var(--theme-colors-accent, #ffc107);
+		color: var(--theme-colors-accent-contrast, #3b0f10);
 		font-weight: 500;
 		border: none;
 		border-radius: 0.4rem;

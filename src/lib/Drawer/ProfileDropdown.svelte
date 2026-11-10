@@ -193,7 +193,7 @@
 	}
 
 	.item:hover {
-		background-color: rgba(255, 255, 255, 0.08);
+		background-color: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.08));
 	}
 
 	.item.active {
@@ -236,7 +236,7 @@
 	}
 
 	.remove-icon:hover {
-		background-color: #ae2e2e;
+		background-color: var(--theme-colors-danger, #ae2e2e);
 		opacity: 1;
 	}
 </style>

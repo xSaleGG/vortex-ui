@@ -78,7 +78,7 @@
 		min-height: 0;
 		padding: 0.4rem 0.75rem;
 		border: 0;
-		border-radius: 0.6rem;
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		background: var(--theme-button-background-color-off);
 		color: inherit;
 		font: inherit;
@@ -97,7 +97,7 @@
 
 	.summary-grid button.active .group-icon,
 	.summary-grid button.active .count strong {
-		color: var(--theme-button-icon-color-on, #e6b45c);
+		color: var(--theme-button-icon-color-on, var(--theme-colors-accent, #e6b45c));
 	}
 
 	.group-icon {

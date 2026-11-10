@@ -97,7 +97,7 @@
 	}
 
 	.error {
-		color: red;
+		color: var(--theme-colors-danger, red);
 		margin: 0.5rem 0 0;
 		font-size: 0.875rem;
 	}

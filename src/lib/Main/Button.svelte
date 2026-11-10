@@ -80,7 +80,7 @@
 		? color
 		: attributes?.hs_color
 			? `hsl(${attributes?.hs_color}%, 50%)`
-			: 'rgb(75, 166, 237)';
+			: 'var(--theme-colors-info, rgb(75, 166, 237))';
 
 	// icon is image if extension, e.g. test.png
 	$: image = icon?.includes('.');
@@ -549,7 +549,7 @@
 		width: 100%;
 		height: 100%;
 		display: grid;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		margin: 0;
 		grid-template-columns: min-content auto;
 		grid-auto-flow: row;
@@ -585,7 +585,7 @@
 		height: var(--icon-size);
 		width: var(--icon-size);
 		color: rgb(200 200 200);
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.25));
 		border-radius: 50%;
 		display: grid;
 		align-items: center;
@@ -624,7 +624,7 @@
 	}
 
 	.icon[data-state='true'] {
-		color: white;
+		color: var(--theme-colors-text, white);
 		background-color: var(--icon-color);
 	}
 

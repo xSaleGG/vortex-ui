@@ -26,7 +26,7 @@
 		<div class="bottom-buttons">
 			<button
 				on:click={confirm}
-				style:background-color="#ae2e2e"
+				style:background-color="var(--theme-colors-danger, #ae2e2e)"
 				use:Ripple={{ ...$ripple, color: 'rgba(0, 0, 0, 0.35)' }}
 			>
 				{$lang('ok')}
@@ -50,7 +50,7 @@
 		border-radius: 0.4em;
 		background-color: rgba(255, 255, 255, 0.15);
 		border: none;
-		color: white;
+		color: var(--theme-colors-text, white);
 		padding: 0.55em 0.9em;
 		cursor: pointer;
 		font-family: inherit;

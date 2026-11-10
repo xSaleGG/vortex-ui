@@ -242,7 +242,7 @@
 		font-size: 3.2rem;
 		border: none;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-		color: white;
+		color: var(--theme-colors-text, white);
 		width: 20rem;
 		margin: 2rem auto;
 		outline: none;

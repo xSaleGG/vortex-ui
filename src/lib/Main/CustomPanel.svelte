@@ -78,10 +78,10 @@
 		gap: 0.75rem;
 		width: 100%;
 		border: none;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		cursor: pointer;
 		padding: 0 1rem;
-		color: white;
+		color: var(--theme-colors-text, white);
 		font-family: inherit;
 		font-size: 0.95rem;
 		overflow: hidden;

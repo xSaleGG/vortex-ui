@@ -22,7 +22,7 @@
 		margin: 0 0.4rem;
 		background-color: var(--theme-button-background-color-off);
 		align-items: center;
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-button, 0.4rem);
 		display: grid;
 		overflow: hidden;
 	}

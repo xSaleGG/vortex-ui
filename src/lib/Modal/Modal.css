@@ -3,7 +3,7 @@
  */
 
 :root {
-	--border-color-button: 1px solid rgb(100 100 100);
+	--border-color-button: var(--theme-colors-sidebar-border, 1px solid rgb(100 100 100));
 }
 
 #modal h1 {
@@ -37,8 +37,8 @@ h2[data-modal] {
 }
 
 #modal .button-container button {
-	background-color: rgba(0, 0, 0, 0.2);
-	color: white;
+	background-color: var(--theme-button-background-color-off, rgba(0, 0, 0, 0.2));
+	color: var(--theme-button-name-color-off, var(--theme-colors-text, white));
 	width: auto;
 	border: none;
 	cursor: pointer;
@@ -55,8 +55,8 @@ h2[data-modal] {
 }
 
 #modal .button-container button:first-child {
-	border-top-left-radius: 0.6rem;
-	border-bottom-left-radius: 0.6rem;
+	border-top-left-radius: var(--theme-border-radius-button, 0.6rem);
+	border-bottom-left-radius: var(--theme-border-radius-button, 0.6rem);
 	border: var(--border-color-button);
 	border-right: none;
 }
@@ -68,20 +68,21 @@ h2[data-modal] {
 }
 
 #modal .button-container button:last-child {
-	border-top-right-radius: 0.6rem;
-	border-bottom-right-radius: 0.6rem;
+	border-top-right-radius: var(--theme-border-radius-button, 0.6rem);
+	border-bottom-right-radius: var(--theme-border-radius-button, 0.6rem);
 	border: var(--border-color-button);
 }
 
 #modal .button-container .selected {
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--theme-button-background-color-on, rgba(255, 255, 255, 0.1));
+	color: var(--theme-button-name-color-on, var(--theme-colors-text, white));
 }
 
 #modal .input {
 	padding: 0.9em;
-	border-radius: 0.6em;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: var(--theme-border-radius-control, 0.6em);
+	border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.3));
+	background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 	color: inherit;
 	font-family: inherit;
 	width: 100%;
@@ -91,9 +92,9 @@ h2[data-modal] {
 /* directly add `data-modal` to every element instead of just input */
 input[data-modal] {
 	padding: 0.9em;
-	border-radius: 0.6em;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: var(--theme-border-radius-control, 0.6em);
+	border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.3));
+	background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 	color: inherit;
 	font-family: inherit;
 	width: 100%;
@@ -101,7 +102,7 @@ input[data-modal] {
 }
 
 #modal .input::placeholder {
-	color: rgba(255, 255, 255, 0.3);
+	color: var(--theme-colors-text-muted, rgba(255, 255, 255, 0.3));
 	opacity: 1;
 }
 
@@ -122,12 +123,12 @@ input[data-modal] {
 }
 
 #modal .remove {
-	background-color: #ae2e2e;
+	background-color: var(--theme-colors-danger, #ae2e2e);
 	font-size: inherit;
 }
 
 #modal .action {
-	border-radius: 0.4em;
+	border-radius: var(--theme-border-radius-button, 0.4em);
 	border: none;
 	color: inherit;
 	padding: 0.55em 0.9em;

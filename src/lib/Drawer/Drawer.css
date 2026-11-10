@@ -11,7 +11,7 @@
 	text-align: left;
 	position: relative;
 	border: none;
-	border-radius: 0.4rem;
+	border-radius: var(--theme-border-radius-button, 0.4rem);
 	padding: 0.65rem 1rem 0.4rem 0.82rem;
 	font-family: inherit;
 	cursor: pointer;
@@ -30,14 +30,14 @@
 	background-color: transparent;
 	width: 100%;
 	/* child radius = parent radius - padding */
-	border-radius: calc(0.4rem - 0.2rem);
+	border-radius: var(--theme-border-radius-button, 0.4rem);
 }
 
 /* buttons shown inline in toolbar (not inside a dropdown popup) */
 #drawer .add-buttons .button.dropdown {
 	background-color: var(--theme-drawer-button-background-color);
 	width: auto;
-	border-radius: 0.4rem;
+	border-radius: var(--theme-border-radius-button, 0.4rem);
 }
 
 /* add margin instead of padding because of animation drift */

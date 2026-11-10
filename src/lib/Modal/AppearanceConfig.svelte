@@ -277,18 +277,18 @@
 	}
 
 	.edit {
-		background-color: #ffc107;
-		color: #3b0f10;
-		border-radius: 0.4rem;
+		background-color: var(--theme-colors-accent, #ffc107);
+		color: var(--theme-colors-accent-contrast, #3b0f10);
+		border-radius: var(--theme-border-radius-button, 0.4rem);
 		cursor: pointer;
-		border: 1px solid #ffd968;
+		border: 1px solid var(--theme-colors-accent, #ffd968);
 		width: 2rem;
 		height: 2rem;
 	}
 
 	@keyframes flash {
 		0% {
-			outline: 2px solid #ffc008;
+			outline: 2px solid var(--theme-colors-accent, #ffc008);
 		}
 
 		25% {
@@ -296,7 +296,7 @@
 		}
 
 		50% {
-			outline: 2px solid #ffc008;
+			outline: 2px solid var(--theme-colors-accent, #ffc008);
 		}
 
 		75% {
@@ -304,15 +304,15 @@
 		}
 
 		100% {
-			outline: 2px solid #ffc008;
+			outline: 2px solid var(--theme-colors-accent, #ffc008);
 		}
 	}
 
 	.highlight {
-		outline: 2px solid #ffc008;
+		outline: 2px solid var(--theme-colors-accent, #ffc008);
 		animation: flash 1.3s ease-in-out forwards;
 		animation-delay: 300ms;
-		border-radius: 0.6rem;
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		outline-offset: 1px;
 	}
 

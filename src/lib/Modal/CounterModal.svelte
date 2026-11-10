@@ -99,7 +99,7 @@
 		border: 0;
 		padding: 0 0 0.2rem 0;
 		font-size: 2rem;
-		color: white;
+		color: var(--theme-colors-text, white);
 		margin: 0 2.5rem;
 		width: 3.5rem;
 		height: 3.5rem;

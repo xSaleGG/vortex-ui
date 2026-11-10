@@ -193,7 +193,7 @@
 
 	.timeline {
 		display: flex;
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-card, 0.4rem);
 		overflow: hidden;
 	}
 
@@ -215,6 +215,6 @@
 	}
 
 	.event.off {
-		background-color: rgba(0, 0, 0, 0.3);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.3));
 	}
 </style>

@@ -68,8 +68,8 @@
 	}}
 	style:opacity={modified ? '1' : '0.5'}
 	style:cursor={modified ? 'pointer' : 'unset'}
-	style:color={modified ? '#3b0f10' : 'currentColor'}
-	style:background-color={modified ? '#ffc107' : 'var(--theme-drawer-button-background-color)'}
+	 style:color={modified ? 'var(--theme-colors-accent-contrast, #3b0f10)' : 'currentColor'}
+	 style:background-color={modified ? 'var(--theme-colors-accent, #ffc107)' : 'var(--theme-drawer-button-background-color)'}
 	style:transition="all {$motion}ms ease"
 >
 	<figure>

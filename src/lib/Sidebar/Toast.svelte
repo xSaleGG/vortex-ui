@@ -126,7 +126,7 @@
 	div {
 		position: fixed;
 		padding: 0.5rem 0.6rem;
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-card, 0.4rem);
 		color: inherit;
 		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 		bottom: 1.4rem;

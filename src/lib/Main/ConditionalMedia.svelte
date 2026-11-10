@@ -511,8 +511,8 @@
 		overflow: hidden;
 		--container-padding: 0.8rem;
 		position: relative;
-		color: white;
-		border-radius: 0.65rem;
+		color: var(--theme-colors-text, white);
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		background-color: var(--theme-button-background-color-off);
 		background-size: cover;
 		background-repeat: no-repeat;

@@ -116,10 +116,10 @@
 	<style>
 		.input {
 			padding: 0 0.9em;
-			border-radius: 0.6em;
+			border-radius: var(--theme-border-radius-control, 0.6em);
 			border: 1px solid rgba(255, 255, 255, 0.2);
-			background-color: rgba(0, 0, 0, 0.2);
-			color: white;
+			background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
+			color: var(--theme-colors-text, white);
 			font-family: inherit;
 			font-size: inherit;
 			height: 100%;
@@ -132,7 +132,7 @@
 
 		.clear > button {
 			background: none;
-			color: rgba(255, 255, 255, 0.9);
+			color: var(--theme-colors-text, rgba(255, 255, 255, 0.9));
 			font-size: 1.25rem;
 			border: none;
 			cursor: pointer;

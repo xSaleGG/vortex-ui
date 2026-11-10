@@ -130,7 +130,7 @@
 	}
 
 	p {
-		color: white;
+		color: var(--theme-colors-text, white);
 		margin-bottom: 12px;
 		background-color: rgb(178 0 0 / 74%);
 		padding: 0.6rem 0.7rem 0.45rem 0.7rem;

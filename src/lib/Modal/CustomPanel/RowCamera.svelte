@@ -66,7 +66,7 @@
 	}
 
 	.placeholder.warning {
-		color: #ffb347;
+		color: var(--theme-colors-warning, #ffb347);
 		opacity: 0.7;
 	}
 </style>

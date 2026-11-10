@@ -186,8 +186,8 @@
 	function sectionStyles(sectionType: string, editMode: boolean, motion: number, empty: boolean) {
 		return `
 			min-height: ${sectionType === 'scenes' ? '4.8rem' : `${$itemHeight}px`};
-			background-color: ${empty ? 'rgba(255, 190, 10, 0.25)' : sectionType === 'scenes' ? 'rgba(0, 0, 0, 0.125)' : 'transparent'};
-			outline: ${empty ? '2px dashed #ffc107' : 'none'};
+			background-color: ${empty ? 'var(--theme-colors-accent-subtle, rgba(255, 190, 10, 0.25))' : sectionType === 'scenes' ? 'rgba(0, 0, 0, 0.125)' : 'transparent'};
+			outline: ${empty ? '2px dashed var(--theme-colors-accent, #ffc107)' : 'none'};
 			transition: ${
 				editMode ? `background-color ${motion / 2}ms ease, min-height ${motion}ms ease` : 'none'
 			};
@@ -349,7 +349,7 @@
 				<div
 					class="horizontal-stack"
 					style:min-height="{stackHeight}px"
-					style:outline="2px dashed {$editMode ? '#ffc008' : 'transparent'}"
+					style:outline="2px dashed {$editMode ? 'var(--theme-colors-accent, #ffc008)' : 'transparent'}"
 					style:transition="min-height {$motion}ms ease, outline {$motion / 2}ms ease"
 					data-is-dnd-shadow-item-hint={section?.[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
 					use:dndzone={{
@@ -430,7 +430,7 @@
 				<div
 					class="vertical-stack"
 					style:min-height="{stackHeight}px"
-					style:outline="2px dashed {$editMode ? '#ffc008' : 'transparent'}"
+					style:outline="2px dashed {$editMode ? 'var(--theme-colors-accent, #ffc008)' : 'transparent'}"
 					style:transition="min-height {$motion}ms ease, outline {$motion / 2}ms ease"
 					data-is-dnd-shadow-item-hint={section?.[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
 					use:dndzone={{
@@ -610,7 +610,7 @@
 		grid-auto-flow: column;
 		grid-auto-columns: 1fr;
 		gap: 2rem;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		outline-offset: 3px;
 	}
 
@@ -618,18 +618,18 @@
 		display: grid;
 		grid-auto-flow: row;
 		gap: 1.5rem;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		outline-offset: 3px;
 	}
 
 	.items {
-		border-radius: 0.6rem;
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		outline-offset: -2px;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, 14.5rem);
 		grid-auto-rows: min-content;
 		gap: 0.4rem;
-		border-radius: 0.6rem;
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		height: 100%;
 	}
 
@@ -640,7 +640,7 @@
 
 	.item {
 		position: relative;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 	}
 
 	/* Small phones (< 480px) */
@@ -739,7 +739,7 @@
 	.scenes {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		overflow: hidden;
 		min-height: 5rem;
 	}

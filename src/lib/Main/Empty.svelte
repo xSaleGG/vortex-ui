@@ -28,8 +28,8 @@
 <style>
 	.container {
 		width: 14.5rem;
-		background-color: rgba(255, 255, 255, 0.25);
-		border-radius: 0.65rem;
+		background-color: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.25));
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		margin: 0;
 		outline: 2px dashed #fff;
 		outline-offset: -2px;

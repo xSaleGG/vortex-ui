@@ -202,8 +202,8 @@
 	}
 
 	.save {
-		background-color: #ffc107;
-		color: #3b0f10 !important;
+		background-color: var(--theme-colors-accent, #ffc107);
+		color: var(--theme-colors-accent-contrast, #3b0f10) !important;
 		font-weight: 500;
 	}
 

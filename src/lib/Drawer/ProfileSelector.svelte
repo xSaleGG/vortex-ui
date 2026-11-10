@@ -179,7 +179,7 @@
 		border: none;
 		cursor: pointer;
 		background-color: rgba(200, 50, 50, 0.85);
-		color: white;
+		color: var(--theme-colors-text, white);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -194,7 +194,7 @@
 	.name-input {
 		background-color: var(--theme-drawer-button-background-color);
 		border: 1px solid rgba(255, 255, 255, 0.25);
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-control, 0.4rem);
 		color: inherit;
 		font-family: inherit;
 		font-size: var(--theme-drawer-font-size);

@@ -51,7 +51,7 @@
 		right: 2.3rem;
 		height: 100%;
 		width: 1px;
-		background-color: rgba(255, 255, 255, 0.2);
+		background-color: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.2));
 	}
 
 	.select {

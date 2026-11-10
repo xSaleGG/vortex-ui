@@ -4,7 +4,7 @@
 	left: 0;
 	height: 100%;
 	background: var(--drag-overlay-color, rgba(255, 200, 50, 0.35));
-	border-radius: 0.65rem;
+	border-radius: var(--theme-border-radius-card, 0.65rem);
 	pointer-events: none;
 	transition: width 0.04s linear;
 	z-index: 1;

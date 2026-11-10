@@ -318,7 +318,7 @@
 	}
 
 	.highlighted {
-		background-color: rgba(255, 255, 255, 0.05);
+		background-color: var(--theme-colors-surface, rgba(255, 255, 255, 0.05));
 	}
 
 	.selected {

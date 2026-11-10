@@ -39,13 +39,13 @@
 		z-index: 4;
 		padding: 0.5rem;
 		text-align: center;
-		background: rgba(174, 46, 46, 0.9);
-		color: white;
+		background: var(--theme-colors-danger, rgba(174, 46, 46, 0.9));
+		color: var(--theme-colors-text, white);
 		font-size: 0.9rem;
 		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 	}
 
 	.demo-banner {
-		background: rgba(42, 105, 83, 0.94);
+		background: var(--theme-colors-success, rgba(42, 105, 83, 0.94));
 	}
 </style>

@@ -31,7 +31,7 @@
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		border-radius: 0.8rem;
 		width: 100%;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 	}
 
 	.center {

@@ -110,7 +110,7 @@
 		display: grid;
 		grid-template-columns: min-content 1fr min-content;
 		align-items: center;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		margin: 0;
 		--container-padding: 0.72rem;
 		transform: translateZ(0);
@@ -131,7 +131,7 @@
 		height: 2.4rem;
 		width: 2.4rem;
 		color: rgb(200 200 200);
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.25));
 		border-radius: 50%;
 		display: flex;
 		align-items: center;

@@ -182,11 +182,11 @@
 	.dismiss {
 		all: unset;
 		padding: 0.4rem 0.7rem;
-		border-radius: 0.35rem;
+		border-radius: var(--theme-border-radius-button, 0.35rem);
 		font-weight: 500;
 		font-size: 0.8rem;
-		background: #ffc008;
-		color: #3b0f0f;
+		background: var(--theme-colors-accent, #ffc008);
+		color: var(--theme-colors-accent-contrast, #3b0f0f);
 		border: inherit;
 		font-family: inherit;
 		white-space: nowrap;

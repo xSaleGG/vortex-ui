@@ -29,13 +29,13 @@
 <style>
 	button {
 		all: unset;
-		color: white;
+		color: var(--theme-colors-text, white);
 		border-radius: 0.35rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
-		background-color: #ae2e2e;
+		background-color: var(--theme-colors-danger, #ae2e2e);
 		width: 1.6rem;
 		height: 1.6rem;
 		flex-shrink: 0;

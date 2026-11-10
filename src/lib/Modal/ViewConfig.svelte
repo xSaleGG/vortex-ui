@@ -195,7 +195,7 @@
 
 	.view_item {
 		border-bottom: 3px solid white;
-		color: white;
+		color: var(--theme-colors-text, white);
 		font-weight: 700;
 		font-size: 1.2rem;
 		padding-bottom: 3px;

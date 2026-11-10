@@ -58,7 +58,7 @@
 		padding: 0;
 		border: 0;
 		border-radius: 0.3rem;
-		background: rgba(0, 0, 0, 0.2);
+		background: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 		color: inherit;
 		cursor: pointer;
 	}

@@ -102,7 +102,7 @@
 	}
 
 	.card {
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 		border-radius: 0.6rem;
 		padding: 0.55rem 0.75rem;
 	}

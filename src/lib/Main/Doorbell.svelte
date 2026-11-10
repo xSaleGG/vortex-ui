@@ -94,10 +94,10 @@
 <style>
 	button {
 		all: unset;
-		background-color: rgba(0, 0, 0, 0.2);
-		border-radius: 0.6rem;
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		position: relative;
-		color: white;
+		color: var(--theme-colors-text, white);
 		overflow: hidden;
 		display: grid;
 		box-sizing: border-box;

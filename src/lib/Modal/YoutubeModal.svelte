@@ -268,7 +268,7 @@
 
 	.code {
 		border: none;
-		color: white;
+		color: var(--theme-colors-text, white);
 		user-select: text;
 		font-size: 1.35rem;
 		background-color: var(--theme-button-background-color-off);
@@ -315,7 +315,7 @@
 	}
 
 	.error {
-		color: red;
+		color: var(--theme-colors-danger, red);
 		margin-top: 1rem;
 	}
 </style>

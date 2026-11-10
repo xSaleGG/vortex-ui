@@ -744,7 +744,7 @@
 		align-items: center;
 		gap: 0.4rem;
 		font-size: 0.8rem;
-		color: #ffb347;
+		color: var(--theme-colors-warning, #ffb347);
 		margin: 0.5rem 0;
 		opacity: 0.85;
 	}

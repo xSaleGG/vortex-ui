@@ -131,9 +131,9 @@
 	id="editmode"
 	class="button"
 	on:click={handleClick}
-	style:color={$editMode ? '#3b0f10' : 'inherit'}
-	style:background-color={$editMode ? '#ffc107' : 'var(--theme-drawer-button-background-color)'}
-	style:width="{width + 1}px"
+	 style:color={$editMode ? 'var(--theme-colors-accent-contrast, #3b0f10)' : 'inherit'}
+	 style:background-color={$editMode ? 'var(--theme-colors-accent, #ffc107)' : 'var(--theme-drawer-button-background-color)'}
+	 style:width="{width + 1}px"
 	style:transition="all {$motion}ms ease"
 	use:Ripple={{
 		...$ripple,

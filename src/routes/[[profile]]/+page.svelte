@@ -382,6 +382,7 @@
 <style>
 	#layout {
 		display: grid;
+		color: var(--theme-colors-text, white);
 		grid-template-areas:
 			'header header'
 			'aside nav'

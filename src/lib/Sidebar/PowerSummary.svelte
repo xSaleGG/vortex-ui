@@ -94,7 +94,7 @@
 	.group-row {
 		width: 100%;
 		background-color: rgba(0, 0, 0, 0.2);
-		border-radius: 0.6rem;
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		padding: 0.5rem 0.75rem;
 		border: 0;
 		display: flex;
@@ -151,7 +151,7 @@
 
 	.badge {
 		flex-shrink: 0;
-		background: var(--theme-colors-sidebar-item-background, rgba(255, 255, 255, 0.15));
+		background: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.15));
 		border-radius: 999px;
 		padding: 0 0.5rem;
 		font-size: 0.75rem;

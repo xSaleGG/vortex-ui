@@ -45,8 +45,8 @@
 	on:click={handleClick}
 	on:pointerdown|stopPropagation
 	use:Ripple={{ ...$ripple, color: 'rgba(0, 0, 0, 0.35)' }}
-	style:color={conditions ? '#3b0f0f' : 'inherit'}
-	style:background-color={conditions ? '#ffc008' : 'var(--theme-button-background-color-off)'}
+	style:color={conditions ? 'var(--theme-colors-accent-contrast, #3b0f0f)' : 'inherit'}
+	style:background-color={conditions ? 'var(--theme-colors-accent, #ffc008)' : 'var(--theme-button-background-color-off)'}
 	style:transition="background-color {$motion}ms ease"
 >
 	<div class="icon">
@@ -64,7 +64,7 @@
 		height: 1.8rem;
 		align-items: center;
 		border: inherit;
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-button, 0.4rem);
 		display: flex;
 		font-family: inherit;
 		overflow: hidden;

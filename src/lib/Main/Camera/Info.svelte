@@ -34,7 +34,7 @@
 		align-self: end;
 		width: inherit;
 		z-index: 1;
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.25));
 		backdrop-filter: blur(1rem);
 		-webkit-backdrop-filter: blur(1rem);
 	}

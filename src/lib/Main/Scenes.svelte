@@ -92,7 +92,7 @@
 			'icon'
 			'name';
 		width: 100%;
-		background-color: rgba(0, 0, 0, 0.225);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.225));
 		margin: 0;
 		border: none;
 		cursor: grab;

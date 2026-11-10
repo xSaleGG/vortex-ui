@@ -119,7 +119,7 @@
 		font-size: 1.1rem;
 		border-radius: 0.8rem;
 		background-color: rgb(255, 255, 255, 0.1);
-		color: white;
+		color: var(--theme-colors-text, white);
 		padding: 0.5rem 0.85rem;
 		border: 2px solid white;
 		cursor: pointer;

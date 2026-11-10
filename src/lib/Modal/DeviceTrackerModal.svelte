@@ -363,7 +363,7 @@
 				overflow-wrap: break-word;
 				padding: 10px 16px 13px 16px;
 				border-radius: 0.8em;
-				color: white;
+				color: var(--theme-colors-text, white);
 				font-family: inherit;
 				font-size: 0.9rem;
 				background: var(--popup-background);
@@ -432,8 +432,8 @@
 
 	.notice {
 		padding: 0.6rem 3.5rem 0.6rem 0.9rem;
-		background: #ffc008;
-		color: #3b0f0f;
+		background: var(--theme-colors-accent, #ffc008);
+		color: var(--theme-colors-accent-contrast, #3b0f0f);
 		font-weight: 500;
 		display: flex;
 		position: absolute;

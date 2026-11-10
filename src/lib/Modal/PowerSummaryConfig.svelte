@@ -415,8 +415,8 @@
 
 <style>
 	.preview {
-		background: rgba(0, 0, 0, 0.2);
-		border-radius: 0.6rem;
+		background: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
+		border-radius: var(--theme-border-radius-card, 0.6rem);
 		overflow: hidden;
 	}
 

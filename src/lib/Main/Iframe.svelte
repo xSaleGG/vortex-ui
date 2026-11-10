@@ -46,7 +46,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.7rem;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		margin: 0;
 		padding: 0.72rem;
 		border: none;
@@ -64,7 +64,7 @@
 		height: var(--icon-size);
 		width: var(--icon-size);
 		color: rgb(200 200 200);
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.25));
 		border-radius: 50%;
 		display: flex;
 		align-items: center;

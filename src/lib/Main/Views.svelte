@@ -199,7 +199,7 @@
 	}
 
 	#navigation button {
-		color: white;
+		color: var(--theme-colors-text, white);
 		background: none;
 		border: none;
 		font-weight: 700;

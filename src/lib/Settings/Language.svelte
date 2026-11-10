@@ -55,7 +55,7 @@
 
 <style>
 	a {
-		color: #fa8f92;
+		color: var(--theme-colors-danger, #fa8f92);
 	}
 
 	p {

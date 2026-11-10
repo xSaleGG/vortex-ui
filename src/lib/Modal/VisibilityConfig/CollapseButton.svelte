@@ -20,7 +20,7 @@
 <style>
 	button {
 		all: unset;
-		color: white;
+		color: var(--theme-colors-text, white);
 		border-radius: 0.35rem;
 		display: flex;
 		justify-content: center;

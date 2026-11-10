@@ -236,8 +236,8 @@
 										<section
 											data-exclude-drag-modal
 											class="nested"
-											style:background-color={empty ? 'rgba(255, 190, 10, 0.25)' : 'transparent'}
-											style:outline={empty ? '2px dashed #ffc107' : 'none'}
+											style:background-color={empty ? 'var(--theme-colors-accent-subtle, rgba(255, 190, 10, 0.25))' : 'transparent'}
+											style:outline={empty ? '2px dashed var(--theme-colors-accent, #ffc107)' : 'none'}
 											style:transition="background-color {$motion}ms ease"
 											use:dndzone={{
 												...dndOptions,
@@ -351,11 +351,11 @@
 	}
 
 	:global(.evaluate-condition.visible) {
-		background-color: #007800;
+		background-color: var(--theme-colors-success, #007800);
 	}
 
 	:global(.evaluate-condition.hidden) {
-		background: #ffc008;
-		color: #3b0f0f;
+		background: var(--theme-colors-accent, #ffc008);
+		color: var(--theme-colors-accent-contrast, #3b0f0f);
 	}
 </style>

@@ -42,7 +42,7 @@
 
 <style>
 	div {
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 		background-color: rgba(255, 190, 10, 0.25);
 		outline: rgb(255, 192, 8) dashed 2px;
 		outline-offset: -2px;

@@ -82,8 +82,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.7rem 0.8rem;
-		border-radius: 0.5rem;
-		background: rgba(0, 0, 0, 0.16);
+		border-radius: var(--theme-border-radius-card, 0.5rem);
+		background: var(--theme-colors-surface, rgba(0, 0, 0, 0.16));
 	}
 
 	.entity > :global(svg) {

@@ -35,7 +35,7 @@
 	}
 
 	.title {
-		color: #ffc008;
+		color: var(--theme-colors-accent, #ffc008);
 		font-size: 1.14rem;
 		font-weight: 700;
 		align-self: center;

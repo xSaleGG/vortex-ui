@@ -60,8 +60,8 @@
 		right: 0;
 		bottom: 0;
 		visibility: visible;
-		background: rgba(0, 0, 0, 0.125);
+		background: var(--theme-colors-surface, rgba(0, 0, 0, 0.125));
 		margin: 0;
-		border-radius: 0.65rem;
+		border-radius: var(--theme-border-radius-card, 0.65rem);
 	}
 </style>

@@ -124,7 +124,7 @@
 	}
 
 	.error {
-		color: red;
+		color: var(--theme-colors-danger, red);
 	}
 
 	.template {

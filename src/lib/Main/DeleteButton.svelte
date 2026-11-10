@@ -41,7 +41,7 @@
 <style>
 	button {
 		background: #ba0000;
-		color: white;
+		color: var(--theme-colors-text, white);
 		padding: 0.4rem 0.6rem;
 		font-weight: 500;
 		float: right;
@@ -50,7 +50,7 @@
 		height: 1.8rem;
 		align-items: center;
 		border: inherit;
-		border-radius: 0.4rem;
+		border-radius: var(--theme-border-radius-button, 0.4rem);
 		display: flex;
 		font-family: inherit;
 		overflow: hidden;

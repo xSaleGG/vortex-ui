@@ -156,8 +156,8 @@
 		padding: 0.7rem 0.9rem;
 		border-radius: 0.6rem;
 		border: 1px solid rgba(255, 255, 255, 0.2);
-		background-color: rgba(0, 0, 0, 0.2);
-		color: white;
+		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
+		color: var(--theme-colors-text, white);
 		font-family: inherit;
 		font-size: 1rem;
 		margin-top: 1.3rem;

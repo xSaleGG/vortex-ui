@@ -35,7 +35,7 @@
 <style>
 	a,
 	h2 {
-		color: orange;
+		color: var(--theme-colors-warning, orange);
 		user-select: text;
 	}
 

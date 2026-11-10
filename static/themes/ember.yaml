@@ -5,6 +5,17 @@ theme:
   colors-text: rgb(255, 240, 210)
   colors-icon: rgb(255, 200, 120)
   colors-title: rgb(255, 240, 210)
+  colors-accent: rgb(255, 152, 0)
+  colors-accent-contrast: rgb(30, 10, 0)
+  colors-accent-subtle: rgba(255, 152, 0, 0.2)
+  colors-success: '#4caf50'
+  colors-warning: '#ffb300'
+  colors-danger: '#e5534b'
+  colors-info: '#5294e2'
+  colors-surface: rgba(255, 255, 255, 0.07)
+  colors-surface-raised: rgba(255, 152, 0, 0.15)
+  colors-border: rgba(255, 152, 0, 0.25)
+  colors-text-muted: rgba(255, 200, 140, 0.7)
   colors-sidebar-border: 1px solid rgba(255, 152, 0, 0.25)
   colors-sidebar-background: rgba(26, 8, 0, 0.5)
   sizes-sidebar-time: 3.4rem
@@ -19,6 +30,10 @@ theme:
   button-state-color-off: rgba(255, 200, 140, 0.7)
   modal-background-color: rgba(0, 0, 0, 0.4)
   border-radius: 0.4rem
+  border-radius-button: 0.4rem
+  border-radius-control: 0.6rem
+  border-radius-card: 0.65rem
+  border-radius-modal: 1.2rem
   sidebar-font-size: 1rem
   sidebar-item-padding: 0.6rem 0.6rem
   sidebar-padding: 0 1.4rem
