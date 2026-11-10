@@ -39,7 +39,8 @@
 
 		openModal(() => import('$lib/Modal/PowerSummaryDetails.svelte'), {
 			group: result.group,
-			entityIds: result.entities.map((entity) => entity.entity_id)
+			entityIds: result.entities.map((entity) => entity.entity_id),
+			columns: sel?.detail_columns ?? 1
 		});
 	}
 </script>

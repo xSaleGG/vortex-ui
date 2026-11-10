@@ -9,6 +9,7 @@
 	export let isOpen: boolean;
 	export let group: PowerSummaryGroup;
 	export let entityIds: string[];
+	export let columns: 1 | 2 | 3 | 4 = 1;
 
 	$: entities = entityIds
 		.map((entityId) => $states?.[entityId])
@@ -48,7 +49,10 @@
 		<h1 slot="title">{group?.label || $lang('power_summary')}</h1>
 
 		{#if entities.length > 0}
-			<div class="entities">
+			<div
+				class="entities"
+				style:grid-template-columns={`repeat(${columns}, minmax(0, 1fr))`}
+			>
 				{#each entities as entity (entity.entity_id)}
 					<div class:active={entity.state === 'on'} class="entity">
 						<Icon icon={icon(entity)} height="1.25rem" width="1.25rem" />
@@ -68,11 +72,13 @@
 <style>
 	.entities {
 		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
 		gap: 0.35rem;
 	}
 
 	.entity {
 		display: flex;
+		min-width: 0;
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.7rem 0.8rem;

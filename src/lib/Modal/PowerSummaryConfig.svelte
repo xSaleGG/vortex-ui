@@ -188,6 +188,18 @@
 		</div>
 
 		<h2>{$lang('options')}</h2>
+		<h2>{$lang('power_summary_columns')}</h2>
+		<div class="button-container">
+			{#each [1, 2, 3, 4] as columns}
+				<button
+					class:selected={(sel.detail_columns ?? 1) === columns}
+					on:click={() => set('detail_columns', columns)}
+					use:Ripple={$ripple}
+				>
+					{columns}
+				</button>
+			{/each}
+		</div>
 
 		{#if sel.groups && sel.groups.length > 0}
 			<div

@@ -201,6 +201,7 @@ export interface PowerSummaryItem {
 	type?: string;
 	id?: number;
 	groups?: PowerSummaryGroup[];
+	detail_columns?: 1 | 2 | 3 | 4;
 	hide_mobile?: boolean;
 }
 
