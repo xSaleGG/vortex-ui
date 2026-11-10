@@ -73,6 +73,6 @@
 		"svelte-ripple": "^0.1.1",
 		"svelte-tiny-virtual-list": "^2.1.2",
 		"weekstart": "^2.0.0",
-		"youtubei.js": "^16.0.1"
+		"youtubei.js": "^18.3.0"
 	}
 }
