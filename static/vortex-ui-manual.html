@@ -1087,12 +1087,12 @@ docker compose up -d vortex-ui</code></pre>
 						the screen.
 					</li>
 					<li class="de">
-						 <strong>Seitenleiste</strong> – auf der rechten Seite werden Informations-Widgets angezeigt (Zeit, Wetter,
-						Sensoren usw.).
+						<strong>Seitenleiste</strong> – links werden Informations-Widgets angezeigt (Zeit, Wetter, Sensoren usw.);
+						auf kleinen Bildschirmen oberhalb der Navigation.
 					</li>
 					<li class="en">
-						<strong>Sidebar</strong> — on the right, shows informational widgets (time, weather,
-						sensors, etc.).
+						<strong>Sidebar</strong> — shows informational widgets (time, weather, sensors, etc.) on the left;
+						it moves above the navigation on small screens.
 					</li>
 				</ol>
 
@@ -3454,6 +3454,58 @@ docker compose up -d vortex-ui</code></pre>
 	<span class="key">days_to_show</span><span class="kw">:</span> <span class="val">3</span>        <span class="cm"># Tage in der Seitenleiste</span>
 	<span class="key">detail_days_to_show</span><span class="kw">:</span> <span class="val">7</span> <span class="cm"># Tage im Dialog</span>
   <span class="key">icon_pack</span><span class="kw">:</span> <span class="val">meteocons</span></code></pre>
+				<p class="de">
+					Ein Klick auf die Vorhersage öffnet im normalen Anzeigemodus die Detailansicht. Sie zeigt die aktuelle
+					Bedingung und Temperatur sowie – sofern von der Wetterentität bereitgestellt – Luftfeuchtigkeit,
+					Luftdruck, Windgeschwindigkeit und UV-Index. Darunter erscheint die erweiterte Vorhersage. Mit
+					<code>detail_days_to_show</code> legen Sie deren Einträge fest; angezeigt werden höchstens sieben.
+					Der Prognosetyp (täglich, stündlich oder zweimal täglich) hängt von den Funktionen der Entität ab.
+				</p>
+				<p class="en">
+					Clicking the forecast in normal display mode opens its detail view. It shows the current condition and
+					temperature, plus humidity, pressure, wind speed and UV index when provided by the weather entity. The
+					expanded forecast appears below. <code>detail_days_to_show</code> controls its entries, up to a maximum
+					of seven. Available forecast types (daily, hourly or twice daily) depend on the entity's capabilities.
+				</p>
+
+				<h3>Power Summary</h3>
+				<p class="de">
+					Power Summary kann als Element im Hauptraster oder in der Seitenleiste verwendet werden. Es fasst
+					Entitäten in benannten Gruppen zusammen und zeigt die Anzahl der aktiven Entitäten im Verhältnis zur
+					Gesamtzahl. Beim Anklicken einer Gruppe öffnet sich die Detailansicht mit Name und Zustand der
+					zugehörigen Entitäten.
+				</p>
+				<p class="en">
+					Power Summary can be used as an item in the main grid or sidebar. It groups entities under named
+					labels and shows the active count against the total. Clicking a group opens a detail view listing the
+					name and state of each matching entity.
+				</p>
+				<pre><code>- type: power_summary
+  id: 1234567890106
+  groups:
+    - label: Beleuchtung
+      icon: mdi:lightbulb-group
+      domains:
+        - light
+      exclude:
+        - light.example
+      on_states:
+        - 'on'
+  detail_columns: 2</code></pre>
+				<p class="de">
+					Jede Gruppe kann über <code>domains</code> passende Entitätsdomänen auswählen und mit <code>exclude</code>
+					Einzelne ausschließen. Alternativ legt <code>include</code> eine feste Entitätsliste fest; in diesem
+					Modus gelten <code>domains</code> und <code>exclude</code> nicht. <code>on_states</code> bestimmt,
+					welche Zustände als aktiv zählen (Standard: <code>on</code>). <code>detail_columns</code> legt die
+					Spaltenzahl der Detailansicht von 1 bis 4 fest (Standard: 1).
+				</p>
+				<p class="en">
+					Use <code>domains</code> to match entity domains and <code>exclude</code> to omit individual entities.
+					Alternatively, <code>include</code> specifies an explicit entity list; in that mode,
+					<code>domains</code> and <code>exclude</code> are ignored. <code>on_states</code> defines which states
+					count as active (default: <code>on</code>). <code>detail_columns</code> sets the detail view to 1–4
+					columns (default: 1).
+				</p>
 
 				<h3>Sensor</h3>
 				<p class="de">Zeigt den Wert einer Sensorentität mit optionalem Präfix und Suffix an.</p>
@@ -3913,8 +3965,8 @@ docker compose up -d vortex-ui</code></pre>
 							</tr>
 							<tr>
 								<td>weather</td>
-								<td class="de">Aktuelle Bedingungen und Prognose</td>
-								<td class="en">Current conditions and forecast</td>
+								<td class="de">Aktuelle Wetterbedingungen</td>
+								<td class="en">Current weather conditions</td>
 							</tr>
 							<tr>
 								<td>calendar</td>
@@ -4572,6 +4624,45 @@ docker logs vortex-ui --tail 100 -f  <span class="cm"># segui in tempo reale</sp
 					<span class="de">YAML-Referenz – Elemente</span
 					><span class="en">YAML Reference — Items</span>
 				</h2>
+				<h3>Power Summary</h3>
+				<p class="de">
+					Dieses Element kann im Hauptraster und in der Seitenleiste verwendet werden. Die Gruppen konfigurieren
+					Sie wie im Abschnitt <a href="#sidebar-items">Seitenleistenelemente</a> beschrieben.
+				</p>
+				<p class="en">
+					This item can be used in the main grid and the sidebar. Configure its groups as described in
+					<a href="#sidebar-items">Sidebar items</a>.
+				</p>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th><span class="de">Feld</span><span class="en">Field</span></th>
+								<th><span class="de">Typ</span><span class="en">Type</span></th>
+								<th><span class="de">Beschreibung</span><span class="en">Description</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td><code>power_summary</code></td>
+							</tr>
+							<tr>
+								<td>groups</td>
+								<td>PowerSummaryGroup[]</td>
+								<td class="de">Gruppen mit <code>label</code>, <code>icon</code>, <code>domains</code> oder <code>include</code>, optional <code>exclude</code> und <code>on_states</code></td>
+								<td class="en">Groups with <code>label</code>, <code>icon</code>, <code>domains</code> or <code>include</code>, optional <code>exclude</code> and <code>on_states</code></td>
+							</tr>
+							<tr>
+								<td>detail_columns</td>
+								<td>1 | 2 | 3 | 4</td>
+								<td class="de">Spaltenzahl der Detailansicht (Standard: 1)</td>
+								<td class="en">Number of detail-view columns (default: 1)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
 				<h3>Button</h3>
 				<div class="table-wrap">
@@ -5168,7 +5259,16 @@ docker logs vortex-ui --tail 100 -f  <span class="cm"># segui in tempo reale</sp
 								<td>weather_forecast</td>
 								<td>
 									<code>entity_id</code>, <code>days_to_show</code> (sidebar),
-									<code>detail_days_to_show</code> (detail modal), <code>icon_pack</code>
+									<code>detail_days_to_show</code> (detail modal, max. 7),
+									<code>forecast_type</code> (daily/hourly/twice_daily),
+									<code>icon_pack</code> (meteocons/weathericons/materialsymbolslight)
+								</td>
+							</tr>
+							<tr>
+								<td>power_summary</td>
+								<td>
+									<code>groups</code> (PowerSummaryGroup[]),
+									<code>detail_columns</code> (1–4, default 1)
 								</td>
 							</tr>
 							<tr>
