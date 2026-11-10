@@ -1,0 +1,47 @@
+title: porcelain
+author: Vortex UI
+attribution: ''
+theme:
+  colors-background: '#f4f5f7'
+  colors-text: rgb(43, 52, 59)
+  colors-icon: rgb(83, 106, 121)
+  colors-title: rgb(43, 52, 59)
+  colors-accent: rgb(83, 106, 121)
+  colors-accent-contrast: rgb(255, 255, 255)
+  colors-danger-contrast: rgb(255, 255, 255)
+  colors-accent-subtle: rgba(83, 106, 121, 0.12)
+  colors-success: '#317458'
+  colors-warning: '#996118'
+  colors-danger: '#c24245'
+  colors-info: '#356b9e'
+  colors-surface: rgba(255, 255, 255, 0.58)
+  colors-surface-raised: rgba(255, 255, 255, 0.82)
+  colors-border: rgba(55, 68, 78, 0.18)
+  colors-text-muted: rgba(58, 68, 76, 0.68)
+  colors-sidebar-border: 1px solid rgba(55, 68, 78, 0.15)
+  colors-sidebar-background: rgba(246, 248, 250, 0.46)
+  sizes-sidebar-time: 3.4rem
+  background-image: 'radial-gradient(ellipse at 12% 8%, rgba(160, 181, 198, 0.34) 0%, transparent 38%), radial-gradient(ellipse at 88% 18%, rgba(216, 199, 178, 0.3) 0%, transparent 36%), radial-gradient(ellipse at 70% 100%, rgba(177, 198, 207, 0.26) 0%, transparent 40%), linear-gradient(135deg, #f7f8fa 0%, #edf1f3 54%, #f7f3ed 100%)'
+  font-family: "'Inter Variable', system-ui"
+  button-background-color-on: rgb(83, 106, 121)
+  button-background-color-off: rgba(255, 255, 255, 0.72)
+  drawer-button-background-color: rgba(255, 255, 255, 0.64)
+  button-name-color-on: rgb(255, 255, 255)
+  button-name-color-off: rgb(43, 52, 59)
+  button-state-color-on: rgba(255, 255, 255, 0.82)
+  button-state-color-off: rgba(58, 68, 76, 0.68)
+  modal-background-color: rgba(43, 42, 63, 0.3)
+  border-radius: 0.5rem
+  border-radius-button: 0.55rem
+  border-radius-control: 0.7rem
+  border-radius-card: 0.85rem
+  border-radius-modal: 1.25rem
+  sidebar-font-size: 1rem
+  sidebar-item-padding: 0.6rem 0.6rem
+  sidebar-padding: 0 1.4rem
+  drawer-font-size: 0.925rem
+  sidebar-divider: 1px solid rgba(51, 78, 67, 0.14)
+  navigate-background-color: rgba(83, 106, 121, 0.12)
+  app-color: '#f4f5f7'
+  modal-background-color-modal: rgb(247 248 242 / 96%)
+  modal-background-color-sticky: rgb(247 248 242)

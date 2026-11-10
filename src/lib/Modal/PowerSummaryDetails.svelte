@@ -49,10 +49,7 @@
 		<h1 slot="title">{group?.label || $lang('power_summary')}</h1>
 
 		{#if entities.length > 0}
-			<div
-				class="entities"
-				style:grid-template-columns={`repeat(${columns}, minmax(0, 1fr))`}
-			>
+			<div class="entities" style:grid-template-columns={`repeat(${columns}, minmax(0, 1fr))`}>
 				{#each entities as entity (entity.entity_id)}
 					<div class:active={entity.state === 'on'} class="entity">
 						<Icon icon={icon(entity)} height="1.25rem" width="1.25rem" />
@@ -88,7 +85,7 @@
 
 	.entity > :global(svg) {
 		flex: 0 0 auto;
-		color: rgba(255, 255, 255, 0.68);
+		color: var(--theme-colors-text-muted, rgba(255, 255, 255, 0.68));
 	}
 
 	.copy {
@@ -114,7 +111,7 @@
 
 	.entity.active > :global(svg),
 	.entity.active .copy span {
-		color: #f0b45a;
+		color: var(--theme-colors-accent, #f0b45a);
 		opacity: 1;
 	}
 

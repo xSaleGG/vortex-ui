@@ -79,6 +79,13 @@
 			height = elementRect.height + 'px';
 		}
 	}
+
+	function getThemePreview(theme: any) {
+		const backgroundImage = theme?.theme?.['background-image'];
+		return typeof backgroundImage === 'string' && backgroundImage.includes('gradient')
+			? backgroundImage
+			: `url('${base}/themes/${theme?.title}_thumbnail.webp')`;
+	}
 </script>
 
 {#if isOpen}
@@ -144,15 +151,19 @@
 						class:selected_theme={!mounted && _theme}
 					>
 						<div class="theme-container">
-							<div
-								class="image-area"
-								style:background-image="url('{base}/themes/{theme?.title}_thumbnail.webp')"
-							></div>
+							<div class="image-area" style:background-image={getThemePreview(theme)}></div>
 
-							<div class="description-area">
+							<div
+								class="description-area"
+								style:background-color={theme?.theme?.['colors-surface-raised']}
+								style:color={theme?.theme?.['colors-text']}
+								style:border-top-color={theme?.theme?.['colors-border']}
+							>
 								<div class="description">
 									<div class="name">{theme?.title}</div>
-									<div class="author">{theme?.author}</div>
+									<div class="author" style:color={theme?.theme?.['colors-text-muted']}>
+										{theme?.author}
+									</div>
 									<div class="edit-area">
 										<div
 											use:Ripple={{
@@ -197,7 +208,7 @@
 
 <style>
 	.selected_theme {
-		outline: 2px solid white;
+		outline: 2px solid var(--theme-colors-accent, white);
 		border-radius: 0.6rem;
 		z-index: 1;
 	}
@@ -235,7 +246,7 @@
 		aspect-ratio: 4/3;
 		border-radius: 0.6rem;
 		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.2));
 	}
 
 	.image-area {
@@ -245,9 +256,10 @@
 
 	.description-area {
 		grid-area: description-area;
-		background-color: #212122;
+		background-color: var(--theme-colors-surface-raised, #212122);
+		color: var(--theme-colors-text, white);
 		padding: 0.7rem 0.9rem 0.8rem 0.9rem;
-		border-top: 1px solid var(--border-color-button);
+		border-top: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.2));
 	}
 
 	.description {
@@ -268,7 +280,7 @@
 	.author {
 		grid-area: author;
 		font-size: 0.9rem;
-		opacity: 0.5;
+		color: var(--theme-colors-text-muted, currentColor);
 	}
 
 	.edit-area {
@@ -281,7 +293,7 @@
 		color: var(--theme-colors-accent-contrast, #3b0f10);
 		border-radius: var(--theme-border-radius-button, 0.4rem);
 		cursor: pointer;
-		border: 1px solid var(--theme-colors-accent, #ffd968);
+		border: 1px solid var(--theme-colors-border, var(--theme-colors-accent, #ffd968));
 		width: 2rem;
 		height: 2rem;
 	}

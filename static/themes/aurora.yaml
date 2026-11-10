@@ -1,0 +1,46 @@
+title: aurora
+author: Vortex UI
+attribution: ''
+theme:
+  colors-background: '#101426'
+  colors-text: rgb(232, 241, 255)
+  colors-icon: rgb(119, 239, 211)
+  colors-title: rgb(232, 241, 255)
+  colors-accent: rgb(119, 239, 211)
+  colors-accent-contrast: rgb(15, 43, 46)
+  colors-accent-subtle: rgba(119, 239, 211, 0.16)
+  colors-success: '#71d7a4'
+  colors-warning: '#ffc36b'
+  colors-danger: '#ff7584'
+  colors-info: '#82b8ff'
+  colors-surface: rgba(17, 24, 45, 0.68)
+  colors-surface-raised: rgba(192, 204, 255, 0.11)
+  colors-border: rgba(192, 204, 255, 0.2)
+  colors-text-muted: rgba(205, 215, 241, 0.7)
+  colors-sidebar-border: 1px solid rgba(192, 204, 255, 0.16)
+  colors-sidebar-background: rgba(14, 19, 38, 0.5)
+  sizes-sidebar-time: 3.4rem
+  background-image: 'radial-gradient(ellipse at 18% 8%, rgba(53, 117, 139, 0.62) 0%, transparent 38%), radial-gradient(ellipse at 88% 22%, rgba(103, 71, 154, 0.52) 0%, transparent 40%), radial-gradient(ellipse at 72% 100%, rgba(31, 98, 102, 0.45) 0%, transparent 42%), linear-gradient(145deg, #101426 0%, #171a36 52%, #10242d 100%)'
+  font-family: "'Inter Variable', system-ui"
+  button-background-color-on: rgb(119, 239, 211)
+  button-background-color-off: rgba(232, 241, 255, 0.08)
+  drawer-button-background-color: rgba(232, 241, 255, 0.08)
+  button-name-color-on: rgb(15, 43, 46)
+  button-name-color-off: rgb(232, 241, 255)
+  button-state-color-on: rgba(15, 43, 46, 0.72)
+  button-state-color-off: rgba(205, 215, 241, 0.7)
+  modal-background-color: rgba(4, 8, 18, 0.4)
+  border-radius: 0.45rem
+  border-radius-button: 0.5rem
+  border-radius-control: 0.65rem
+  border-radius-card: 0.75rem
+  border-radius-modal: 1.2rem
+  sidebar-font-size: 1rem
+  sidebar-item-padding: 0.6rem 0.6rem
+  sidebar-padding: 0 1.4rem
+  drawer-font-size: 0.925rem
+  sidebar-divider: 1px solid rgba(192, 204, 255, 0.13)
+  navigate-background-color: rgba(119, 239, 211, 0.14)
+  app-color: '#101426'
+  modal-background-color-modal: rgb(17 24 45 / 88%)
+  modal-background-color-sticky: rgb(17 24 45)

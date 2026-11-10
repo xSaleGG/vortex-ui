@@ -147,7 +147,15 @@ Open via the gear icon in the drawer.
 
 ## Themes
 
+Choose a theme from the **Appearance** section in the drawer. The gallery includes **Porcelain**, a light theme with a soft slate-blue, mist, and warm stone palette, plus the dark **Aurora** and **Graphite** themes. Their layered gradients add color and depth without relying on a flat background.
+
 Themes are YAML files in `static/themes/`. The active theme is set in the dashboard config (`dashboard.theme`). Themes define CSS custom properties for colors, backgrounds, fonts, and gradients.
+
+---
+
+## Offline demo mode
+
+When no Home Assistant URL is configured, Vortex UI shows an offline demo notice. You can dismiss it; the choice is remembered in that browser.
 
 ---
 

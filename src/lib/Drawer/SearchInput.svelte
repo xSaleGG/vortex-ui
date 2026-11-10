@@ -117,7 +117,7 @@
 		.input {
 			padding: 0 0.9em;
 			border-radius: var(--theme-border-radius-control, 0.6em);
-			border: 1px solid rgba(255, 255, 255, 0.2);
+			border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.2));
 			background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.2));
 			color: var(--theme-colors-text, white);
 			font-family: inherit;
@@ -145,11 +145,11 @@
 
 		.clear > input {
 			padding-right: 2.5rem;
-			border: 1px solid rgba(255, 255, 255, 0.3);
+			border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.3));
 		}
 
 		.clear > input::placeholder {
-			color: rgba(255, 255, 255, 0.35);
+			color: var(--theme-colors-text-muted, rgba(255, 255, 255, 0.35));
 			opacity: 1;
 		}
 

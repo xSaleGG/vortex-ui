@@ -50,7 +50,6 @@ h2[data-modal] {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	padding: 0 1rem;
-	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 	flex: 1 1 auto;
 }
 
@@ -145,7 +144,7 @@ input[data-modal] {
 
 #modal .clear > button {
 	background: none;
-	color: lightgrey;
+	color: var(--theme-colors-text-muted, lightgrey);
 	font-size: 1.5rem;
 	border: none;
 	cursor: pointer;
@@ -165,10 +164,10 @@ input[data-modal] {
 
 #modal .icon-gallery {
 	padding: 0 1rem;
-	border-radius: 0.6em;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background-color: rgba(0, 0, 0, 0.2);
-	color: inherit;
+	border-radius: var(--theme-border-radius-control, 0.6em);
+	border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.3));
+	background-color: var(--theme-button-background-color-off, rgba(0, 0, 0, 0.2));
+	color: var(--theme-button-name-color-off, var(--theme-colors-text, white));
 	font-size: inherit;
 	cursor: pointer;
 	width: 3.15rem;

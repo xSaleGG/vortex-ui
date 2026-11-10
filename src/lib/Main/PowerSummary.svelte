@@ -34,7 +34,7 @@
 			type="button"
 			class:active={result.count > 0}
 			style:height="{$itemHeight}px"
-		on:click={() => handleGroupClick(result)}
+			on:click={() => handleGroupClick(result)}
 		>
 			<span class="group-icon">
 				<Icon icon={result.group.icon || 'mdi:circle-small'} height="1.5rem" width="1.5rem" />
@@ -97,14 +97,14 @@
 
 	.summary-grid button.active .group-icon,
 	.summary-grid button.active .count strong {
-		color: var(--theme-button-icon-color-on, var(--theme-colors-accent, #e6b45c));
+		color: var(--theme-colors-accent, #e6b45c);
 	}
 
 	.group-icon {
 		grid-area: icon;
 		display: flex;
 		align-items: center;
-		color: var(--theme-button-icon-color-off, currentColor);
+		color: var(--theme-colors-icon, currentColor);
 	}
 
 	.label {

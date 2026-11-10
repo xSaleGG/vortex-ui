@@ -27,6 +27,7 @@
 			<button
 				on:click={confirm}
 				style:background-color="var(--theme-colors-danger, #ae2e2e)"
+				style:color="var(--theme-colors-danger-contrast, white)"
 				use:Ripple={{ ...$ripple, color: 'rgba(0, 0, 0, 0.35)' }}
 			>
 				{$lang('ok')}
@@ -47,10 +48,10 @@
 	}
 
 	.bottom-buttons button {
-		border-radius: 0.4em;
-		background-color: rgba(255, 255, 255, 0.15);
+		border-radius: var(--theme-border-radius-button, 0.4em);
+		background-color: var(--theme-button-background-color-off, rgba(255, 255, 255, 0.15));
 		border: none;
-		color: var(--theme-colors-text, white);
+		color: var(--theme-button-name-color-off, var(--theme-colors-text, white));
 		padding: 0.55em 0.9em;
 		cursor: pointer;
 		font-family: inherit;

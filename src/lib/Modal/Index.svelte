@@ -187,7 +187,6 @@
 			class="contents"
 			bind:this={contents}
 			class:large={size === 'large'}
-			class:warning={!backdropImage}
 			class:fill-contents={fill}
 		>
 			<div class="header">
@@ -227,11 +226,6 @@
 		justify-content: space-between;
 	}
 
-	.warning {
-		color: var(--theme-colors-icon, white);
-		background-color: rgb(38 39 38) !important;
-	}
-
 	div[role='dialog'] {
 		position: fixed;
 		top: 0;
@@ -268,7 +262,7 @@
 		border-radius: var(--theme-border-radius-modal, 1.2rem);
 		position: relative;
 		box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-		outline: 1px solid rgba(255, 255, 255, 0.25);
+		outline: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.25));
 		overflow: hidden;
 	}
 

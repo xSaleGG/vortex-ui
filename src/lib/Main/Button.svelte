@@ -80,7 +80,7 @@
 		? color
 		: attributes?.hs_color
 			? `hsl(${attributes?.hs_color}%, 50%)`
-			: 'var(--theme-colors-info, rgb(75, 166, 237))';
+			: 'var(--theme-colors-icon, var(--theme-colors-accent, rgb(75, 166, 237)))';
 
 	// icon is image if extension, e.g. test.png
 	$: image = icon?.includes('.');
@@ -584,7 +584,7 @@
 		grid-area: icon;
 		height: var(--icon-size);
 		width: var(--icon-size);
-		color: rgb(200 200 200);
+		color: var(--theme-colors-icon, rgb(200 200 200));
 		background-color: var(--theme-colors-surface, rgba(0, 0, 0, 0.25));
 		border-radius: 50%;
 		display: grid;
@@ -624,8 +624,11 @@
 	}
 
 	.icon[data-state='true'] {
-		color: var(--theme-colors-text, white);
-		background-color: var(--icon-color);
+		color: var(
+			--theme-button-name-color-on,
+			var(--theme-colors-accent-contrast, var(--theme-colors-text, white))
+		);
+		background-color: var(--theme-button-background-color-on, var(--icon-color));
 	}
 
 	.name[data-state='true'] {

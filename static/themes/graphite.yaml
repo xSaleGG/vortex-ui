@@ -1,0 +1,46 @@
+title: graphite
+author: Vortex UI
+attribution: ''
+theme:
+  colors-background: '#171a19'
+  colors-text: rgb(237, 241, 230)
+  colors-icon: rgb(200, 239, 112)
+  colors-title: rgb(237, 241, 230)
+  colors-accent: rgb(200, 239, 112)
+  colors-accent-contrast: rgb(35, 45, 23)
+  colors-accent-subtle: rgba(200, 239, 112, 0.15)
+  colors-success: '#9bd36a'
+  colors-warning: '#ffc46b'
+  colors-danger: '#ff7b71'
+  colors-info: '#83baff'
+  colors-surface: rgba(12, 16, 15, 0.64)
+  colors-surface-raised: rgba(237, 241, 230, 0.08)
+  colors-border: rgba(200, 239, 112, 0.2)
+  colors-text-muted: rgba(210, 218, 198, 0.68)
+  colors-sidebar-border: 1px solid rgba(200, 239, 112, 0.16)
+  colors-sidebar-background: rgba(14, 17, 16, 0.5)
+  sizes-sidebar-time: 3.4rem
+  background-image: 'radial-gradient(ellipse at 78% 12%, rgba(87, 112, 47, 0.42) 0%, transparent 38%), radial-gradient(ellipse at 8% 88%, rgba(51, 82, 75, 0.45) 0%, transparent 42%), linear-gradient(145deg, #171a19 0%, #202522 54%, #151b1a 100%)'
+  font-family: "'Inter Variable', system-ui"
+  button-background-color-on: rgb(200, 239, 112)
+  button-background-color-off: rgba(237, 241, 230, 0.07)
+  drawer-button-background-color: rgba(237, 241, 230, 0.07)
+  button-name-color-on: rgb(35, 45, 23)
+  button-name-color-off: rgb(237, 241, 230)
+  button-state-color-on: rgba(35, 45, 23, 0.72)
+  button-state-color-off: rgba(210, 218, 198, 0.68)
+  modal-background-color: rgba(0, 0, 0, 0.4)
+  border-radius: 0.35rem
+  border-radius-button: 0.4rem
+  border-radius-control: 0.55rem
+  border-radius-card: 0.6rem
+  border-radius-modal: 1rem
+  sidebar-font-size: 1rem
+  sidebar-item-padding: 0.6rem 0.6rem
+  sidebar-padding: 0 1.4rem
+  drawer-font-size: 0.925rem
+  sidebar-divider: 1px solid rgba(200, 239, 112, 0.14)
+  navigate-background-color: rgba(200, 239, 112, 0.14)
+  app-color: '#171a19'
+  modal-background-color-modal: rgb(20 24 22 / 86%)
+  modal-background-color-sticky: rgb(20 24 22)

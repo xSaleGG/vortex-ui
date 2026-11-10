@@ -3,7 +3,7 @@ author: amedello
 attribution: ''
 theme:
   colors-text: rgb(230, 245, 230)
-  colors-icon: rgb(180, 220, 180)
+  colors-icon: rgb(129, 199, 132)
   colors-title: rgb(230, 245, 230)
   colors-accent: rgb(129, 199, 132)
   colors-accent-contrast: rgb(13, 30, 15)
