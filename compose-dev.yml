@@ -1,0 +1,14 @@
+services:
+  vortex-ui:
+    container_name: vortex-ui
+    build: .
+    volumes:
+      - ~/Developer/vortex-ui/data:/app/data
+    network_mode: bridge
+    ports:
+      - 5050:5050
+    environment:
+      TZ: Europe/Stockholm
+      HASS_URL: http://192.168.1.241:8123
+    restart: always
+# cd ~/Developer/vortex-ui && docker compose -f compose-dev.yml up -d --build vortex-ui

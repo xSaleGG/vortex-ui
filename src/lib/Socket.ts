@@ -1,0 +1,230 @@
+import {
+	getAuth,
+	createLongLivedTokenAuth,
+	createConnection,
+	subscribeConfig,
+	subscribeEntities,
+	subscribeServices,
+	ERR_CANNOT_CONNECT,
+	ERR_INVALID_AUTH,
+	ERR_CONNECTION_LOST,
+	ERR_HASS_HOST_REQUIRED,
+	ERR_INVALID_HTTPS_TO_HTTP,
+	ERR_INVALID_AUTH_CALLBACK
+} from 'home-assistant-js-websocket';
+import type { Auth, AuthData } from 'home-assistant-js-websocket';
+import {
+	states,
+	connection,
+	config,
+	connected,
+	event,
+	persistentNotifications,
+	services
+} from '$lib/Stores';
+import { openModal, closeModal } from 'svelte-modals';
+import type { Configuration, PersistentNotification } from '$lib/Types';
+
+// Module-level reference to the active connection. Prevents authentication()
+// from creating a duplicate connection on every profile switch (which would
+// abandon the old subscribeEntities callback and leave states empty until the
+// new subscription fires).
+let _activeConn: any = null;
+
+const options = {
+	hassUrl: undefined as string | undefined,
+	async loadTokens() {
+		try {
+			const raw = localStorage.hassTokens;
+			// guard against literal "null" string written by old clearTokens()
+			if (!raw || raw === 'null' || raw === 'undefined') return undefined;
+			const tokens = JSON.parse(raw);
+			// validate token structure before returning
+			if (!tokens?.access_token && !tokens?.refresh_token) return undefined;
+			return tokens;
+		} catch {
+			return undefined;
+		}
+	},
+	saveTokens(tokens: AuthData | null) {
+		localStorage.hassTokens = JSON.stringify(tokens);
+	},
+	clearTokens() {
+		localStorage.removeItem('hassTokens');
+	}
+};
+
+export async function authentication(configuration: Configuration) {
+	if (!configuration?.hassUrl) {
+		console.error('hassUrl is undefined...');
+		return;
+	}
+
+	// Skip if a connection is already established — avoids creating a second
+	// WebSocket on profile switches where the token/URL haven't changed.
+	if (_activeConn) return;
+
+	let auth: Auth | undefined;
+
+	try {
+		// long lived access token
+		if (configuration?.token) {
+			auth = createLongLivedTokenAuth(configuration?.hassUrl, configuration?.token);
+
+			// companion app and ingress causes issues with auth redirect
+			// open special modal to enter long lived access token
+		} else if (navigator.userAgent.includes('Home Assistant')) {
+			openModal(() => import('$lib/Components/TokenModal.svelte'));
+			return;
+
+			// default auth flow
+		} else {
+			const isIngress = window.location.pathname.includes('/api/hassio_ingress/');
+			const redirectUrl = isIngress ? `${window.location.origin}/?auth_callback=1` : undefined;
+
+			auth = await getAuth({
+				...options,
+				hassUrl: configuration?.hassUrl,
+				...(redirectUrl && { redirectUrl })
+			});
+			if (auth.expired) auth.refreshAccessToken();
+		}
+
+		// connection
+		const conn = await createConnection({ auth });
+		_activeConn = conn;
+		connection.set(conn);
+
+		// states
+		subscribeEntities(conn, (hassEntities) => {
+			states.set(hassEntities);
+		});
+
+		// config
+		subscribeConfig(conn, (hassConfig) => {
+			config.set(hassConfig);
+		});
+
+		// services — subscribe globally at connection time so all components
+		// have immediate access without needing to re-subscribe individually
+		subscribeServices(conn, (hassServices) => {
+			services.set(hassServices);
+		});
+
+		// events
+		conn.addEventListener('ready', () => {
+			console.debug('connected.');
+			connected.set(true);
+		});
+
+		conn.addEventListener('disconnected', () => {
+			console.debug('connecting...');
+			connected.set(false);
+		});
+
+		conn.addEventListener('reconnect-error', () => {
+			console.error('ERR_INVALID_AUTH.');
+			_activeConn = null; // allow a fresh authentication() attempt
+			connected.set(false);
+		});
+
+		// clear auth query string
+		if (location.search.includes('auth_callback=1')) {
+			history.replaceState(null, '', location.pathname);
+		}
+
+		// custom events
+		conn?.subscribeMessage(
+			(message: any) => {
+				const trigger = message?.variables?.trigger?.event?.data?.event;
+
+				// close_popup
+				if (trigger === 'close_popup') {
+					event.set('close_popup');
+					closeModal();
+				}
+
+				// refresh
+				else if (trigger === 'refresh') {
+					sessionStorage.setItem('event', 'refresh');
+					location.reload();
+				}
+			},
+			{
+				type: 'subscribe_trigger',
+				trigger: {
+					platform: 'event',
+					event_type: 'HA_FUSION'
+				}
+			}
+		);
+
+		// notifications
+		conn?.subscribeMessage(
+			(data: {
+				type: 'added' | 'removed' | 'current' | 'updated';
+				notifications: Record<string, PersistentNotification>;
+			}) => {
+				// initial
+				if (data?.type === 'current') {
+					persistentNotifications.set(data?.notifications);
+
+					// update
+				} else if (data?.type === 'added' || data?.type === 'updated') {
+					persistentNotifications.update((notifications) => ({
+						...notifications,
+						...data?.notifications
+					}));
+
+					// remove
+				} else if (data?.type === 'removed') {
+					persistentNotifications.update((notifications) => {
+						Object.keys(data?.notifications).forEach((notificationId) => {
+							delete notifications[notificationId];
+						});
+						return { ...notifications };
+					});
+				}
+			},
+			{
+				type: 'persistent_notification/subscribe'
+			}
+		);
+	} catch (_error) {
+		handleError(_error);
+	}
+}
+
+// error string instead of code
+function handleError(_error: unknown) {
+	switch (_error) {
+		case ERR_INVALID_AUTH:
+			console.error('ERR_INVALID_AUTH');
+			options.clearTokens();
+			break;
+		case ERR_INVALID_AUTH_CALLBACK:
+			// raised by getAuth() when limitHassInstance is true and the
+			// client ID or hassURL in the auth callback state don't match
+			console.error('ERR_INVALID_AUTH_CALLBACK');
+			options.clearTokens();
+			if (location.search.includes('auth_callback=1')) {
+				history.replaceState(null, '', location.pathname);
+			}
+			break;
+		case ERR_CANNOT_CONNECT:
+			console.error('ERR_CANNOT_CONNECT');
+			break;
+		case ERR_CONNECTION_LOST:
+			console.error('ERR_CONNECTION_LOST');
+			break;
+		case ERR_HASS_HOST_REQUIRED:
+			console.error('ERR_HASS_HOST_REQUIRED');
+			break;
+		case ERR_INVALID_HTTPS_TO_HTTP:
+			console.error('ERR_INVALID_HTTPS_TO_HTTP');
+			break;
+		default:
+			console.error(_error);
+	}
+	throw _error;
+}

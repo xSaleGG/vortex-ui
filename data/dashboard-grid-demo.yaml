@@ -1,0 +1,76 @@
+theme: slate
+hide_views: false
+hide_sidebar: true
+views:
+  - id: 9800000000001
+    name: Grid Demo
+    icon: mdi:view-grid-outline
+    is_default: true
+    sections:
+      - id: 9800000000010
+        type: grid
+        name: Raster mit veränderbaren Breiten
+        columns: 12
+        items:
+          - id: 9800000000011
+            type: button
+            entity_id: light.demo_wohnzimmer_decke
+            name: Deckenlicht
+            icon: mdi:ceiling-light
+            display_only: true
+            grid_span: 3
+          - id: 9800000000012
+            type: button
+            entity_id: light.demo_wohnzimmer_stehlampe
+            name: Stehlampe
+            icon: mdi:floor-lamp
+            display_only: true
+            grid_span: 6
+          - id: 9800000000013
+            type: button
+            entity_id: sensor.demo_aussentemperatur
+            name: Außentemperatur
+            icon: mdi:thermometer
+            display_only: true
+            grid_span: 3
+          - id: 9800000000014
+            type: button
+            entity_id: climate.demo_haus
+            name: Raumklima
+            icon: mdi:thermostat
+            display_only: true
+            grid_span: 4
+          - id: 9800000000015
+            type: button
+            entity_id: cover.demo_wohnzimmer
+            name: Beschattung
+            icon: mdi:window-shutter
+            display_only: true
+            grid_span: 8
+          - id: 9800000000016
+            type: button
+            entity_id: binary_sensor.demo_balkontuer
+            name: Balkontür
+            icon: mdi:door-sliding
+            display_only: true
+            grid_span: 4
+          - id: 9800000000017
+            type: power_summary
+            grid_span: 12
+            groups:
+              - id: 9800000000018
+                label: Beleuchtung
+                icon: mdi:lightbulb-group
+                include:
+                  - light.demo_wohnzimmer_decke
+                  - light.demo_wohnzimmer_stehlampe
+                on_states:
+                  - 'on'
+              - id: 9800000000019
+                label: Fenster & Türen
+                icon: mdi:window-open
+                include:
+                  - binary_sensor.demo_balkontuer
+                on_states:
+                  - 'on'
+sidebar: []

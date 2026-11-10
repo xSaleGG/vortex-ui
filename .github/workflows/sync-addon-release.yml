@@ -1,0 +1,54 @@
+name: Sync release to add-on
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  sync-addon:
+    name: Update add-on repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Vortex UI
+        uses: actions/checkout@v4
+
+      - name: Check add-on token
+        env:
+          ADDON_REPO_TOKEN: ${{ secrets.ADDON_REPO_TOKEN }}
+        run: |
+          if [ -z "$ADDON_REPO_TOKEN" ]; then
+            echo "::error::Configure the ADDON_REPO_TOKEN repository secret with Contents read/write access to addon-vortex-ui."
+            exit 1
+          fi
+
+      - name: Check out add-on repository
+        uses: actions/checkout@v4
+        with:
+          repository: xSaleGG/addon-vortex-ui
+          ref: main
+          token: ${{ secrets.ADDON_REPO_TOKEN }}
+          path: addon-vortex-ui
+
+      - name: Sync release version and notes
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          ADDON_REPO_PATH: addon-vortex-ui
+        run: node scripts/sync-addon-release.mjs
+
+      - name: Commit and push add-on update
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          git -C addon-vortex-ui config user.name "github-actions[bot]"
+          git -C addon-vortex-ui config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C addon-vortex-ui add config.yaml CHANGELOG.md
+          if git -C addon-vortex-ui diff --cached --quiet; then
+            echo "Add-on repository is already up to date."
+            exit 0
+          fi
+          git -C addon-vortex-ui commit -m "chore: sync Vortex UI release ${RELEASE_TAG}"
+          git -C addon-vortex-ui push origin HEAD:main

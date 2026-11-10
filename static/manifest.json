@@ -1,0 +1,20 @@
+{
+	"name": "Vortex UI",
+	"short_name": "Vortex",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"theme_color": "#1e2228",
+	"background_color": "#1e2228",
+	"display": "standalone"
+}

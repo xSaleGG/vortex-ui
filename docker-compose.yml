@@ -1,0 +1,13 @@
+services:
+  vortex-ui:
+    container_name: vortex-ui
+    image: ghcr.io/xsalegg/vortex-ui
+    volumes:
+      - /path/to/vortex-ui:/app/data
+    network_mode: bridge
+    ports:
+      - 5050:5050
+    environment:
+      TZ: Europe/Stockholm
+      HASS_URL: http://192.168.1.241:8123
+    restart: always
