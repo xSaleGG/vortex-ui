@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { dashboard, editMode, record } from '$lib/Stores';
+	import { modals } from 'svelte-modals';
 	import Icon from '@iconify/svelte';
 
 	export let item: any;
@@ -13,7 +14,7 @@
 	}
 </script>
 
-{#if $editMode}
+{#if $editMode && $modals.length === 0}
 	<div class="resize-controls">
 		<button
 			type="button"

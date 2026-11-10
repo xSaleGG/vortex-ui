@@ -72,7 +72,7 @@
 		bottom: 0;
 		right: 0;
 		left: 0;
-		z-index: 2;
+		z-index: 1000;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;

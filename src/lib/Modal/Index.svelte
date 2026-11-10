@@ -242,7 +242,7 @@
 		justify-content: center;
 		align-items: center;
 		pointer-events: none;
-		z-index: 3;
+		z-index: 1001;
 		touch-action: none;
 	}
 
