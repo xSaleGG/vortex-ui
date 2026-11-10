@@ -279,12 +279,12 @@
 	}
 
 	.container::-webkit-scrollbar-thumb {
-		background: rgba(255, 255, 255, 0.2);
+		background: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.2));
 		border-radius: 3px;
 	}
 
 	.container::-webkit-scrollbar-thumb:hover {
-		background: rgba(255, 255, 255, 0.35);
+		background: var(--theme-colors-border, rgba(255, 255, 255, 0.35));
 	}
 
 	button {
@@ -293,9 +293,10 @@
 		padding: 0;
 		font-family: inherit;
 		cursor: pointer;
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.12));
 		border-radius: 0.8rem;
-		background-color: rgba(255, 255, 255, 0.04);
+		background-color: var(--theme-button-background-color-off, rgba(255, 255, 255, 0.04));
+		color: var(--theme-button-name-color-off, var(--theme-colors-text, white));
 		height: 10rem;
 		outline-offset: -2px;
 		overflow: hidden;
@@ -305,13 +306,13 @@
 	}
 
 	button:hover {
-		border-color: rgba(255, 255, 255, 0.22);
-		background-color: rgba(255, 255, 255, 0.07);
+		border-color: var(--theme-colors-accent, rgba(255, 255, 255, 0.22));
+		background-color: var(--theme-colors-surface-raised, rgba(255, 255, 255, 0.07));
 	}
 
 	.preview {
 		flex: 1;
-		color: white;
+		color: var(--theme-colors-text, white);
 		padding: 0 1.2rem;
 		min-width: -webkit-fill-available;
 		display: flex;
@@ -331,14 +332,14 @@
 	.cp-icon {
 		width: 2.4rem;
 		height: 2.4rem;
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: var(--theme-colors-accent, rgba(0, 0, 0, 0.25));
+		color: var(--theme-colors-accent-contrast, var(--theme-colors-text, white));
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 0.5rem;
 		flex-shrink: 0;
-		opacity: 0.7;
 	}
 
 	.cp-preview span {
@@ -347,17 +348,16 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		opacity: 0.7;
 	}
 
 	.footer {
 		padding: 0.45rem 0.9rem 0.5rem;
-		color: rgba(255, 255, 255, 0.45);
+		color: var(--theme-colors-text-muted, rgba(255, 255, 255, 0.45));
 		font-size: 0.72rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		border-top: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.08));
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -366,7 +366,8 @@
 
 	.preview-icon {
 		width: 3rem;
-		opacity: 0.35;
+		color: var(--theme-colors-icon, var(--theme-colors-accent, currentColor));
+		opacity: 0.85;
 		margin: auto;
 	}
 

@@ -155,7 +155,7 @@
 
 							<div
 								class="description-area"
-								style:background-color={theme?.theme?.['colors-surface-raised']}
+								style:background-color={theme?.theme?.['app-color']}
 								style:color={theme?.theme?.['colors-text']}
 								style:border-top-color={theme?.theme?.['colors-border']}
 							>
