@@ -638,6 +638,10 @@
 		grid-auto-columns: minmax(0, 1fr);
 	}
 
+	.items.grid-layout > .item {
+		--grid-button-mobile-width: 100%;
+	}
+
 	.item {
 		position: relative;
 		border-radius: var(--theme-border-radius-card, 0.65rem);
