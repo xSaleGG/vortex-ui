@@ -20,7 +20,9 @@
 	on:click={handleClick}
 	on:pointerdown|stopPropagation
 	use:Ripple={{ ...$ripple, color: 'rgba(0, 0, 0, 0.35)' }}
-	style:background-color={section?.spacer ? 'var(--theme-colors-accent, #ffc008)' : 'var(--theme-button-background-color-off)'}
+	style:background-color={section?.spacer
+		? 'var(--theme-colors-accent, #ffc008)'
+		: 'var(--theme-button-background-color-off)'}
 	style:color={section?.spacer ? 'var(--theme-colors-accent-contrast, #3b0f0f)' : 'inherit'}
 	style:transition="background-color {$motion}ms ease"
 >

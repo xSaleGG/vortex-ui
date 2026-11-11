@@ -202,9 +202,10 @@
 	function gridSpan(item: any, section: any) {
 		const columns = gridColumns(section);
 		const large = ['conditional_media', 'picture_elements', 'camera', 'doorbell'];
-		const defaultSpan = large.includes(item?.type) || item?.type === 'power_summary'
-			? columns
-			: Math.ceil(columns / 3);
+		const defaultSpan =
+			large.includes(item?.type) || item?.type === 'power_summary'
+				? columns
+				: Math.ceil(columns / 3);
 		const requested = Math.floor(Number(item?.grid_span));
 		const span = Number.isFinite(requested) && requested > 0 ? requested : defaultSpan;
 		return Math.min(columns, Math.max(1, span));
@@ -349,7 +350,9 @@
 				<div
 					class="horizontal-stack"
 					style:min-height="{stackHeight}px"
-					style:outline="2px dashed {$editMode ? 'var(--theme-colors-accent, #ffc008)' : 'transparent'}"
+					style:outline="2px dashed {$editMode
+						? 'var(--theme-colors-accent, #ffc008)'
+						: 'transparent'}"
 					style:transition="min-height {$motion}ms ease, outline {$motion / 2}ms ease"
 					data-is-dnd-shadow-item-hint={section?.[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
 					use:dndzone={{
@@ -430,7 +433,9 @@
 				<div
 					class="vertical-stack"
 					style:min-height="{stackHeight}px"
-					style:outline="2px dashed {$editMode ? 'var(--theme-colors-accent, #ffc008)' : 'transparent'}"
+					style:outline="2px dashed {$editMode
+						? 'var(--theme-colors-accent, #ffc008)'
+						: 'transparent'}"
 					style:transition="min-height {$motion}ms ease, outline {$motion / 2}ms ease"
 					data-is-dnd-shadow-item-hint={section?.[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
 					use:dndzone={{

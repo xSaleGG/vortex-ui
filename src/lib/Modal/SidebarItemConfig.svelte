@@ -43,7 +43,6 @@
 
 	let searchString = '';
 	let searchElement: HTMLInputElement;
-	let modalTransitionEnd = false;
 
 	// get random preview entities
 	if (!$demo.graph) getGraphEntity($states, connection, (id) => ($demo.graph = id));
@@ -365,12 +364,7 @@
 <svelte:window on:keydown|capture={handleKeydown} />
 
 {#if isOpen}
-	<Modal
-		size="large"
-		on:transitionend={() => {
-			modalTransitionEnd = true;
-		}}
-	>
+	<Modal size="large">
 		<h1 slot="title">{$lang('options')}</h1>
 
 		<div class="search">

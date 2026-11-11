@@ -121,7 +121,10 @@
 		style:background-color={state === 'active' && entity_id ? 'rgba(0, 0, 0, 0.2)' : 'transparent'}
 		style:transition="background-color {$motion}ms ease"
 	>
-		<div class="icon" style:color={finishes_at ? 'var(--theme-colors-warning, orange)' : 'rgba(255, 255, 255, 0.5)'}>
+		<div
+			class="icon"
+			style:color={finishes_at ? 'var(--theme-colors-warning, orange)' : 'rgba(255, 255, 255, 0.5)'}
+		>
 			<Icon icon="ic:twotone-timer" height="none" />
 		</div>
 
@@ -130,7 +133,12 @@
 				{getName(sel, entity) || $lang('unknown')}
 			</div>
 
-			<div class="counter" style:color={finishes_at ? 'var(--theme-colors-warning, orange)' : 'rgba(255, 255, 255, 0.5)'}>
+			<div
+				class="counter"
+				style:color={finishes_at
+					? 'var(--theme-colors-warning, orange)'
+					: 'rgba(255, 255, 255, 0.5)'}
+			>
 				{#if state === 'active' && entity_id}
 					{displayTime || $timers[entity_id]?.pausedState || '--:--'}
 				{:else if state === 'paused' && entity_id}

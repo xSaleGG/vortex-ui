@@ -40,14 +40,18 @@
 	let altKeyPressed = false;
 	let inactivityTimer: ReturnType<typeof setTimeout> | null = null;
 
-	function resetInactivityTimer() {
+	function resetInactivityTimer(
+		currentViewId = $currentViewId,
+		isEditMode = $editMode,
+		modalCount = $modals.length
+	) {
 		if (inactivityTimer) {
 			clearTimeout(inactivityTimer);
 			inactivityTimer = null;
 		}
 		const defaultView = $dashboard?.views?.find((v) => v.is_default);
-		if (!defaultView?.default_timeout || $editMode || $modals.length > 0) return;
-		if ($currentViewId === defaultView.id) return;
+		if (!defaultView?.default_timeout || isEditMode || modalCount > 0) return;
+		if (currentViewId === defaultView.id) return;
 
 		inactivityTimer = setTimeout(() => {
 			$currentViewId = defaultView.id;
@@ -55,7 +59,7 @@
 		}, defaultView.default_timeout * 1000);
 	}
 
-	$: ($currentViewId, $editMode, $modals, resetInactivityTimer());
+	$: resetInactivityTimer($currentViewId, $editMode, $modals.length);
 
 	// doorbell auto-trigger queue
 	let doorbellQueue: DoorbellItem[] = [];
@@ -303,7 +307,7 @@
 <svelte:window
 	on:keydown={handleKeydown}
 	on:keyup={handleKeyup}
-	on:pointerdown={resetInactivityTimer}
+	on:pointerdown={() => resetInactivityTimer()}
 />
 
 <!-- theme -->

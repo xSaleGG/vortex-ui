@@ -195,7 +195,9 @@
 				{#if message}
 					<div
 						class="message"
-						style:color={success ? 'var(--theme-colors-success, #20df20)' : 'var(--theme-colors-danger, red)'}
+						style:color={success
+							? 'var(--theme-colors-success, #20df20)'
+							: 'var(--theme-colors-danger, red)'}
 						transition:fade={{ duration: $motion }}
 					>
 						{success ? message : $lang('error_save_yaml').replace('{error}', message)}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { connection, states, lang } from '$lib/Stores';
+	import { connection, lang } from '$lib/Stores';
 	import Modal from '$lib/Modal/Index.svelte';
 	import Camera from '$lib/Main/Camera.svelte';
 	import Icon from '@iconify/svelte';

@@ -58,11 +58,6 @@
 		code = '';
 	}
 
-	function goBackToModes() {
-		wizardStep = 0;
-		clearCode();
-	}
-
 	async function executeService(service: string) {
 		try {
 			const serviceData: Record<string, string> = { entity_id };

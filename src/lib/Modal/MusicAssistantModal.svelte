@@ -6,7 +6,7 @@
 	import Ripple from 'svelte-ripple';
 	import { closeModal } from 'svelte-modals';
 	import { callMA, maPlayers, maQueues, maQueueItems, imageUrl } from '$lib/MusicAssistant';
-	import type { MAPlayer, MAQueueItem, MAMediaItem, MAMediaItemImage } from '$lib/MusicAssistant';
+	import type { MAPlayer, MAQueueItem, MAMediaItem } from '$lib/MusicAssistant';
 	import { configuration } from '$lib/Stores';
 	import type { MusicAssistantItem } from '$lib/Types';
 

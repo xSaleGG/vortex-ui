@@ -57,7 +57,8 @@
 			<button
 				type="button"
 				class="group-row"
-				on:click={() => handleGroupClick({ group, count, total: entities.length, displayText, entities })}
+				on:click={() =>
+					handleGroupClick({ group, count, total: entities.length, displayText, entities })}
 				style:opacity={count === 0 && !$editMode ? '0.3' : '1'}
 				style:transition="opacity {$motion}ms ease"
 			>

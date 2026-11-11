@@ -32,7 +32,9 @@
 	on:pointerdown|stopPropagation
 	use:Ripple={{ ...$ripple, color: 'rgba(0, 0, 0, 0.35)' }}
 	style:color={conditions ? 'var(--theme-colors-accent-contrast, #3b0f0f)' : 'inherit'}
-	style:background-color={conditions ? 'var(--theme-colors-accent, #ffc008)' : 'var(--theme-button-background-color-off)'}
+	style:background-color={conditions
+		? 'var(--theme-colors-accent, #ffc008)'
+		: 'var(--theme-button-background-color-off)'}
 	style:transition="background-color {$motion}ms ease"
 >
 	<div class="icon">

@@ -236,8 +236,12 @@
 										<section
 											data-exclude-drag-modal
 											class="nested"
-											style:background-color={empty ? 'var(--theme-colors-accent-subtle, rgba(255, 190, 10, 0.25))' : 'transparent'}
-											style:outline={empty ? '2px dashed var(--theme-colors-accent, #ffc107)' : 'none'}
+											style:background-color={empty
+												? 'var(--theme-colors-accent-subtle, rgba(255, 190, 10, 0.25))'
+												: 'transparent'}
+											style:outline={empty
+												? '2px dashed var(--theme-colors-accent, #ffc107)'
+												: 'none'}
 											style:transition="background-color {$motion}ms ease"
 											use:dndzone={{
 												...dndOptions,

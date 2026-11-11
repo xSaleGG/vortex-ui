@@ -281,21 +281,21 @@
 								<h2>{$lang('domains')}</h2>
 								<div class="chips">
 									<button
-									class="chip"
-									class:selected={group.include === undefined}
-									on:click={() => setIncludeMode(i, false)}
-									use:Ripple={$ripple}
-								>
-									{$lang('domains')}
-								</button>
+										class="chip"
+										class:selected={group.include === undefined}
+										on:click={() => setIncludeMode(i, false)}
+										use:Ripple={$ripple}
+									>
+										{$lang('domains')}
+									</button>
 									<button
-									class="chip"
-									class:selected={group.include !== undefined}
-									on:click={() => setIncludeMode(i, true)}
-									use:Ripple={$ripple}
-								>
-									{$lang('entities')}
-								</button>
+										class="chip"
+										class:selected={group.include !== undefined}
+										on:click={() => setIncludeMode(i, true)}
+										use:Ripple={$ripple}
+									>
+										{$lang('entities')}
+									</button>
 								</div>
 
 								{#if group.include !== undefined}
@@ -307,19 +307,19 @@
 									/>
 									{#if group.include.length > 0}
 										<div class="exclude-tags">
-										{#each group.include as entityId}
-											<span class="tag">
-												{$states[entityId]?.attributes?.friendly_name ?? entityId}
-												<button
-													class="tag-remove"
-													on:click={() => removeInclude(i, entityId)}
-													aria-label="Remove {entityId}"
-												>
-													<Icon icon="mdi:close" height="0.8em" width="0.8em" />
-												</button>
-											</span>
-										{/each}
-									</div>
+											{#each group.include as entityId}
+												<span class="tag">
+													{$states[entityId]?.attributes?.friendly_name ?? entityId}
+													<button
+														class="tag-remove"
+														on:click={() => removeInclude(i, entityId)}
+														aria-label="Remove {entityId}"
+													>
+														<Icon icon="mdi:close" height="0.8em" width="0.8em" />
+													</button>
+												</span>
+											{/each}
+										</div>
 									{/if}
 								{:else}
 									<div class="chips">
@@ -354,26 +354,26 @@
 									<h2>{$lang('exclude')}</h2>
 									{#if (group.domains ?? []).length > 0}
 										<Select
-										options={getExcludeOptions(group)}
-										placeholder={$lang('exclude')}
-										value={undefined}
-										on:change={(e) => addExclude(i, e.detail)}
-									/>
+											options={getExcludeOptions(group)}
+											placeholder={$lang('exclude')}
+											value={undefined}
+											on:change={(e) => addExclude(i, e.detail)}
+										/>
 										{#if (group.exclude ?? []).length > 0}
 											<div class="exclude-tags">
-											{#each group.exclude ?? [] as entityId}
-												<span class="tag">
-													{$states[entityId]?.attributes?.friendly_name ?? entityId}
-													<button
-														class="tag-remove"
-														on:click={() => removeExclude(i, entityId)}
-														aria-label="Remove {entityId}"
-													>
-														<Icon icon="mdi:close" height="0.8em" width="0.8em" />
-													</button>
-												</span>
-											{/each}
-										</div>
+												{#each group.exclude ?? [] as entityId}
+													<span class="tag">
+														{$states[entityId]?.attributes?.friendly_name ?? entityId}
+														<button
+															class="tag-remove"
+															on:click={() => removeExclude(i, entityId)}
+															aria-label="Remove {entityId}"
+														>
+															<Icon icon="mdi:close" height="0.8em" width="0.8em" />
+														</button>
+													</span>
+												{/each}
+											</div>
 										{/if}
 									{:else}
 										<p class="hint">{$lang('select_domains_first')}</p>

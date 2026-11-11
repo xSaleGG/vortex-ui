@@ -184,13 +184,11 @@ Available commands:
 	}
 
 	function stripMACommands(text: string): string {
-		return (
-			text
-				.replace(/```[a-z]*\s*\n?\[MA_CMD\][\s\S]*?\[\/MA_CMD\]\n?```\n?/g, '')
-				.replace(/`\[MA_CMD\][\s\S]*?\[\/MA_CMD\]`/g, '')
-				.replace(/\[MA_CMD\][\s\S]*?\[\/MA_CMD\]/g, '')
-				.trim()
-		);
+		return text
+			.replace(/```[a-z]*\s*\n?\[MA_CMD\][\s\S]*?\[\/MA_CMD\]\n?```\n?/g, '')
+			.replace(/`\[MA_CMD\][\s\S]*?\[\/MA_CMD\]`/g, '')
+			.replace(/\[MA_CMD\][\s\S]*?\[\/MA_CMD\]/g, '')
+			.trim();
 	}
 
 	async function handleSearchAndPlay(args: Record<string, unknown>): Promise<void> {
@@ -208,7 +206,7 @@ Available commands:
 			: (((result as Record<string, unknown>)?.tracks as Array<{
 					uri: string;
 					is_playable?: boolean;
-			  }>) ?? []);
+				}>) ?? []);
 		const arr = raw.filter((item) => item.is_playable !== false);
 		if (!arr.length) return;
 		await callMA('player_queues/play_media', {
@@ -337,7 +335,7 @@ Available commands:
 					}
 				}
 			}
-		} catch (err) {
+		} catch {
 			$aiConversation = {
 				...$aiConversation,
 				messages: [

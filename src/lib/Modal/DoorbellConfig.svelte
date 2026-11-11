@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { dashboard, lang, history, historyIndex, record, ripple, entityList } from '$lib/Stores';
+	import { dashboard, lang, record, ripple, entityList } from '$lib/Stores';
 	import { onDestroy, tick } from 'svelte';
 	import Select from '$lib/Components/Select.svelte';
 	import ConfigButtons from '$lib/Modal/ConfigButtons.svelte';

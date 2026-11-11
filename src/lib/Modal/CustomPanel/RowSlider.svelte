@@ -23,13 +23,7 @@
 	// Light: uses supported_color_modes (HA 2025.x API; magic-number brightness removed in 2025.1).
 	// Ref: developers.home-assistant.io/docs/core/entity/light/
 	type RenderMode =
-		| 'brightness'
-		| 'volume'
-		| 'cover'
-		| 'input_number'
-		| 'toggle'
-		| 'readonly'
-		| 'missing';
+		'brightness' | 'volume' | 'cover' | 'input_number' | 'toggle' | 'readonly' | 'missing';
 
 	$: renderMode = ((): RenderMode => {
 		if (!row?.entity_id) return 'missing';

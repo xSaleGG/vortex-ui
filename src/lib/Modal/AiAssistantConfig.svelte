@@ -17,7 +17,6 @@
 	let name: string | undefined = sel?.name;
 	let icon: string | undefined = sel?.icon;
 	let wake_word: string | undefined = sel?.wake_word;
-	let tts_voice: string | undefined = sel?.tts_voice;
 
 	let ttsVoices: { id: string; label: string }[] = [];
 
@@ -203,7 +202,6 @@
 					value={sel?.tts_voice}
 					clearable={true}
 					on:change={(event) => {
-						tts_voice = event.detail || undefined;
 						if (event.detail) {
 							set('tts_voice', event);
 						} else {

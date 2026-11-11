@@ -154,29 +154,29 @@ Theme YAML files live in `static/themes/`. The active theme is set via `dashboar
 
 Key variables:
 
-| Variable                               | Usage                          |
-| -------------------------------------- | ------------------------------ |
-| `--theme-button-background-color-off`  | Tile background                |
-| `--theme-button-name-color-off`        | Tile name text                 |
-| `--theme-button-state-color-off`       | Tile state text                |
-| `--theme-modal-background-color-modal` | Modal background               |
-| `--theme-colors-text`                  | General text color             |
-| `--theme-background-image`             | Page background gradient/image |
+| Variable                               | Usage                               |
+| -------------------------------------- | ----------------------------------- |
+| `--theme-button-background-color-off`  | Tile background                     |
+| `--theme-button-name-color-off`        | Tile name text                      |
+| `--theme-button-state-color-off`       | Tile state text                     |
+| `--theme-modal-background-color-modal` | Modal background                    |
+| `--theme-colors-text`                  | General text color                  |
+| `--theme-background-image`             | Page background gradient/image      |
 | `--theme-colors-accent`                | Edit, selection and highlight color |
-| `--theme-colors-accent-contrast`       | Text/icon color on the accent  |
-| `--theme-colors-accent-subtle`         | Soft accent surface/highlight  |
-| `--theme-colors-success`               | Successful status              |
-| `--theme-colors-warning`               | Warning status                  |
-| `--theme-colors-danger`                | Error and destructive actions  |
-| `--theme-colors-info`                  | Informational status            |
-| `--theme-colors-surface`               | Recessed/overlay surfaces       |
-| `--theme-colors-surface-raised`        | Raised surfaces and controls    |
-| `--theme-colors-border`                | General component borders       |
-| `--theme-colors-text-muted`            | Secondary and placeholder text  |
-| `--theme-border-radius-button`         | Action button corners           |
-| `--theme-border-radius-control`        | Inputs and compact controls     |
-| `--theme-border-radius-card`           | Dashboard cards and tiles       |
-| `--theme-border-radius-modal`          | Modal shell corners              |
+| `--theme-colors-accent-contrast`       | Text/icon color on the accent       |
+| `--theme-colors-accent-subtle`         | Soft accent surface/highlight       |
+| `--theme-colors-success`               | Successful status                   |
+| `--theme-colors-warning`               | Warning status                      |
+| `--theme-colors-danger`                | Error and destructive actions       |
+| `--theme-colors-info`                  | Informational status                |
+| `--theme-colors-surface`               | Recessed/overlay surfaces           |
+| `--theme-colors-surface-raised`        | Raised surfaces and controls        |
+| `--theme-colors-border`                | General component borders           |
+| `--theme-colors-text-muted`            | Secondary and placeholder text      |
+| `--theme-border-radius-button`         | Action button corners               |
+| `--theme-border-radius-control`        | Inputs and compact controls         |
+| `--theme-border-radius-card`           | Dashboard cards and tiles           |
+| `--theme-border-radius-modal`          | Modal shell corners                 |
 
 Theme entries are mapped directly to `--theme-*` CSS properties, so additional YAML keys can be added without a schema update. Components use fallback values for older themes that do not define a token. Entity colors and visualization palettes may remain data-driven where they represent Home Assistant state or user-selected values.
 
