@@ -286,7 +286,7 @@
 		margin-top: -1px;
 		background: none;
 		border: none;
-		color: lightgrey;
+		color: var(--theme-colors-text, lightgrey);
 	}
 
 	.chevron {
@@ -308,8 +308,10 @@
 	.wrapper {
 		margin-top: 0;
 		position: relative;
-		background-color: #1d1b18;
-		border-radius: 0 0 0.6rem 0.6rem;
+		background-color: var(--theme-colors-surface-raised, #1d1b18);
+		color: var(--theme-colors-text, white);
+		border-radius: 0 0 var(--theme-border-radius-control, 0.6rem)
+			var(--theme-border-radius-control, 0.6rem);
 		overflow: hidden;
 	}
 
@@ -322,7 +324,7 @@
 	}
 
 	.selected {
-		background-color: rgba(255, 255, 255, 0.1);
+		background-color: var(--theme-colors-accent-subtle, rgba(255, 255, 255, 0.1));
 	}
 
 	.item {
