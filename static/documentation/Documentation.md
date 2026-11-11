@@ -149,7 +149,7 @@ Open via the gear icon in the drawer.
 
 Choose a theme from the **Appearance** section in the drawer. The gallery includes **Porcelain**, a light theme with a soft slate-blue, mist, and warm stone palette, plus the dark **Aurora** and **Graphite** themes. Their layered gradients add color and depth without relying on a flat background.
 
-Themes are YAML files in `static/themes/`. The active theme is set in the dashboard config (`dashboard.theme`). Themes define CSS custom properties for colors, backgrounds, fonts, and gradients.
+Built-in themes are YAML files in `static/themes/`; the active theme is set in the dashboard config (`dashboard.theme`). Use the theme editor in the Appearance gallery to preview and adjust colors, surfaces, typography, and corner radii. Editing a built-in theme always saves a separate copy under `data/themes/`, so the original remains available. You can also create a new theme from the editor's starter palette. Custom themes persist with the app's data directory.
 
 ---
 

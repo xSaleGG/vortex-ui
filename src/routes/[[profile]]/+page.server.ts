@@ -123,8 +123,13 @@ export async function load({ params, request, cookies }): Promise<{
 
 	const dir = dev ? './static' : './build/client';
 
+	const selectedTheme = dashboard.theme || 'godis';
+	const themeFile = /^custom-[a-z0-9-]+$/.test(selectedTheme)
+		? `./data/themes/${selectedTheme}.yaml`
+		: `${dir}/themes/${selectedTheme}.yaml`;
+
 	const [theme, en, locale, profiles] = await Promise.all([
-		loadFile(`${dir}/themes/${dashboard.theme || 'godis'}.yaml`),
+		loadFile(themeFile),
 		loadFile(`${dir}/translations/en.json`),
 		configuration?.locale && configuration.locale !== 'en'
 			? loadFile(`${dir}/translations/${configuration.locale}.json`)

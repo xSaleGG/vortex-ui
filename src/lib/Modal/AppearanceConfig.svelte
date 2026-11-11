@@ -43,6 +43,19 @@
 		$record();
 	}
 
+	function openThemeEditor(theme?: any) {
+		openModal(() => import('$lib/Modal/ThemeEditor.svelte'), {
+			theme,
+			onSaved: (savedTheme: any) => {
+				themes = [
+					...(themes ?? []).filter((entry: any) => entry.title !== savedTheme.title),
+					savedTheme
+				];
+				setTheme(savedTheme.title);
+			}
+		});
+	}
+
 	function handleViews(state: boolean) {
 		$dashboard.hide_views = state;
 		highlight = false;
@@ -82,9 +95,12 @@
 
 	function getThemePreview(theme: any) {
 		const backgroundImage = theme?.theme?.['background-image'];
-		return typeof backgroundImage === 'string' && backgroundImage.includes('gradient')
-			? backgroundImage
-			: `url('${base}/themes/${theme?.title}_thumbnail.webp')`;
+		if (typeof backgroundImage === 'string') {
+			if (backgroundImage.includes('gradient')) return backgroundImage;
+			const asset = backgroundImage.match(/^url\(['"]?(.+?)['"]?\)$/)?.[1];
+			if (asset?.startsWith('/themes/')) return `url('${base}${asset}')`;
+		}
+		return `url('${base}/themes/${theme?.title}_thumbnail.webp')`;
 	}
 </script>
 
@@ -134,59 +150,54 @@
 		<h1 style:margin-top="1.9rem">{$lang('theme')}</h1>
 
 		{#if themes}
+			<button class="create-theme" on:click={() => openThemeEditor()} use:Ripple={$ripple}>
+				<Icon icon="mdi:plus" height="1rem" />
+				{$lang('theme_editor_new')}
+			</button>
+
 			<div class="gallery" bind:this={gallery}>
 				{#each themes as theme}
 					{@const _theme = $dashboard?.theme === theme?.title}
-					<button
-						use:Ripple={{
-							...$ripple,
-							opacity: _theme ? '0' : $ripple.opacity
-						}}
-						class="container"
-						bind:this={buttons[theme?.title]}
-						on:click={() => {
-							setTheme(theme?.title);
-						}}
-						style:cursor={_theme ? 'unset' : 'pointer'}
-						class:selected_theme={!mounted && _theme}
-					>
-						<div class="theme-container">
-							<div class="image-area" style:background-image={getThemePreview(theme)}></div>
+					<div class="theme-card">
+						<button
+							use:Ripple={{
+								...$ripple,
+								opacity: _theme ? '0' : $ripple.opacity
+							}}
+							class="container"
+							bind:this={buttons[theme?.title]}
+							on:click={() => setTheme(theme?.title)}
+							style:cursor={_theme ? 'unset' : 'pointer'}
+							class:selected_theme={!mounted && _theme}
+						>
+							<div class="theme-container">
+								<div class="image-area" style:background-image={getThemePreview(theme)}></div>
 
-							<div
-								class="description-area"
-								style:background-color={theme?.theme?.['app-color']}
-								style:color={theme?.theme?.['colors-text']}
-								style:border-top-color={theme?.theme?.['colors-border']}
-							>
-								<div class="description">
-									<div class="name">{theme?.title}</div>
-									<div class="author" style:color={theme?.theme?.['colors-text-muted']}>
-										{theme?.author}
-									</div>
-									<div class="edit-area">
-										<div
-											use:Ripple={{
-												...$ripple,
-												color: 'rgba(0, 0, 0, 0.35)'
-											}}
-											class="edit"
-											on:click={() => {
-												openModal(() => import('$lib/Modal/ThemeEditor.svelte'), {
-													theme: theme
-												});
-											}}
-											on:keydown
-											role="button"
-											tabindex="0"
-										>
-											<Icon icon="solar:pen-2-bold-duotone" height="none" />
+								<div
+									class="description-area"
+									style:background-color={theme?.theme?.['app-color']}
+									style:color={theme?.theme?.['colors-text']}
+									style:border-top-color={theme?.theme?.['colors-border']}
+								>
+									<div class="description">
+										<div class="name">{theme?.name ?? theme?.title}</div>
+										<div class="author" style:color={theme?.theme?.['colors-text-muted']}>
+											{theme?.author}
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</button>
+						</button>
+						<button
+							type="button"
+							class="edit"
+							title={$lang('theme_editor_edit')}
+							aria-label={`${$lang('theme_editor_edit')} ${theme?.name ?? theme?.title}`}
+							on:click={() => openThemeEditor(theme)}
+						>
+							<Icon icon="solar:pen-2-bold-duotone" height="none" />
+						</button>
+					</div>
 				{/each}
 
 				{#if mounted}
@@ -227,8 +238,27 @@
 		margin-top: 1rem;
 	}
 
+	.create-theme {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		padding: 0.55rem 0.75rem;
+		border: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.2));
+		border-radius: var(--theme-border-radius-button, 0.4rem);
+		background: var(--theme-colors-surface, rgba(255, 255, 255, 0.06));
+		color: var(--theme-colors-text, white);
+		font: inherit;
+		cursor: pointer;
+	}
+
+	.theme-card {
+		position: relative;
+		min-width: 0;
+	}
+
 	.container {
 		position: relative;
+		width: 100%;
 		cursor: pointer;
 		padding: 0;
 		background-color: transparent;
@@ -258,37 +288,43 @@
 		grid-area: description-area;
 		background-color: var(--theme-colors-surface-raised, #212122);
 		color: var(--theme-colors-text, white);
-		padding: 0.7rem 0.9rem 0.8rem 0.9rem;
+		padding: 0.7rem 3.2rem 0.8rem 0.9rem;
 		border-top: 1px solid var(--theme-colors-border, rgba(255, 255, 255, 0.2));
 	}
 
 	.description {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		grid-template-areas:
-			'name edit-area'
-			'author edit-area';
-		align-items: end;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.15rem;
+		min-width: 0;
 	}
 
 	.name {
-		grid-area: name;
-		font-size: 1rem;
-		margin-bottom: 0.2rem;
+		max-width: 100%;
+		overflow: hidden;
+		font-size: 0.95rem;
+		line-height: 1.2;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.author {
-		grid-area: author;
-		font-size: 0.9rem;
+		max-width: 100%;
+		overflow: hidden;
+		font-size: 0.78rem;
+		line-height: 1.2;
 		color: var(--theme-colors-text-muted, currentColor);
-	}
-
-	.edit-area {
-		grid-area: edit-area;
-		align-self: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.edit {
+		position: absolute;
+		right: 0.6rem;
+		bottom: 0.65rem;
+		display: grid;
+		place-items: center;
 		background-color: var(--theme-colors-accent, #ffc107);
 		color: var(--theme-colors-accent-contrast, #3b0f10);
 		border-radius: var(--theme-border-radius-button, 0.4rem);
@@ -296,6 +332,7 @@
 		border: 1px solid var(--theme-colors-border, var(--theme-colors-accent, #ffd968));
 		width: 2rem;
 		height: 2rem;
+		padding: 0;
 	}
 
 	@keyframes flash {
